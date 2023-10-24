@@ -1,0 +1,701 @@
+run_dir,metric_val_mae,metric_loss,metric_mae,metric_val_loss,flag_learning_rate,flag_momentum,flag_batch_size,flag_epochs,flag_optimizer,flag_decay,steps_completed,epochs,epochs_completed,metrics,model,loss_function,optimizer,learning_rate,script,start,end,completed,output,error_message,error_traceback,source_code,context,type
+runs/2023-09-01T21-37-51Z,0.0424,0,0.0038,0.0021,0.001,0.01,201,500,rmsprop,NA,NA,500,500,runs/2023-09-01T21-37-51Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f6d5a18dcc0>,0.00100000004749745,quadrado-run.R,2023-09-01T21:37:51Z,2023-09-01T21:38:19Z,TRUE,,NA,NA,runs/2023-09-01T21-37-51Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T17-13-30Z,0.0428,0,0.0044,0.0024,0.001,0,128,300,rmsprop,0,NA,300,300,runs/2023-09-01T17-13-30Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f171e386320>,0.00100000004749745,exemplo-quadrado.R,2023-09-01T17:13:30Z,2023-09-01T17:14:50Z,TRUE,"
+> library(keras)
+
+> library(tfruns)
+
+> library(scales)
+
+> # Flags -------------------------------------------------------------------
+> 
+> FLAGS <- flags(
++   flag_numeric('learning_rate', 0.001),
++   flag_ .... [TRUNCATED] 
+
+> # Gerar dados normalizados ------------------------------------------------
+> 
+> minimo <- -100
+
+> maximo <- 100
+
+> dados <- tibble(
++   x = rescale(minimo:maximo),
++   y = rescale(x^2)
++ )
+
+> # Particionar -------------------------------------------------------------
+> 
+> n_dados <- nrow(dados)
+
+> prop_treino <- .8
+
+> n_treino <- (n_dados * prop_treino) %>% round(0)
+
+> dados_treino <- 
++   dados[1:n_treino, 'x'] %>% as.matrix()
+
+> metas_treino <- 
++   dados[1:n_treino, 'y'] %>% as.matrix()
+
+> dados_teste <- 
++   dados[(n_treino + 1):n_dados, 'x'] %>% as.matrix()
+
+> metas_teste <- 
++   dados[(n_treino + 1):n_dados, 'y'] %>% as.matrix()
+
+> # Criar modelo ------------------------------------------------------------
+> 
+> rede1 <- keras_model_sequential() %>% 
++   layer_dense(40, activati .... [TRUNCATED] 
+
+> # Compilar ----------------------------------------------------------------
+> 
+> if (FLAGS$optimizer == 'rmsprop') {
++   opt <- optimizer_rmsprop(
++ .... [TRUNCATED] 
+
+> rede1 %>% 
++   compile(
++     optimizer = opt,
++     loss = 'mse',
++     metrics = 'mae'
++   )
+
+> # Treinar -----------------------------------------------------------------
+> 
+> historico1 <- rede1 %>% fit(
++   dados_treino, 
++   metas_treino, 
+ .... [TRUNCATED] ",NA,NA,runs/2023-09-01T17-13-30Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T20-45-42Z,0.043,0,0.0042,0.0022,0.001,0.001,201,500,rmsprop,NA,NA,500,500,runs/2023-09-01T20-45-42Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f743f5d2860>,0.00100000004749745,quadrado-run.R,2023-09-01T20:45:42Z,2023-09-01T20:50:39Z,TRUE,,NA,NA,runs/2023-09-01T20-45-42Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T21-37-14Z,0.0454,0,0.0043,0.0024,0.001,0.001,201,500,rmsprop,NA,NA,500,500,runs/2023-09-01T21-37-14Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f6cbd5f5d80>,0.00100000004749745,quadrado-run.R,2023-09-01T21:37:14Z,2023-09-01T21:37:51Z,TRUE,,NA,NA,runs/2023-09-01T21-37-14Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T17-07-52Z,0.0454,5.2536e-6,0.002,0.0027,0.001,0,32,300,rmsprop,0,NA,300,300,runs/2023-09-01T17-07-52Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f17996b2830>,0.00100000004749745,exemplo-quadrado.R,2023-09-01T17:07:52Z,2023-09-01T17:09:31Z,TRUE,"
+> library(keras)
+
+> library(tfruns)
+
+> library(scales)
+
+> # Flags -------------------------------------------------------------------
+> 
+> FLAGS <- flags(
++   flag_numeric('learning_rate', 0.001),
++   flag_ .... [TRUNCATED] 
+
+> # Gerar dados normalizados ------------------------------------------------
+> 
+> minimo <- -100
+
+> maximo <- 100
+
+> dados <- tibble(
++   x = rescale(minimo:maximo),
++   y = rescale(x^2)
++ )
+
+> # Particionar -------------------------------------------------------------
+> 
+> n_dados <- nrow(dados)
+
+> prop_treino <- .8
+
+> n_treino <- (n_dados * prop_treino) %>% round(0)
+
+> dados_treino <- 
++   dados[1:n_treino, 'x'] %>% as.matrix()
+
+> metas_treino <- 
++   dados[1:n_treino, 'y'] %>% as.matrix()
+
+> dados_teste <- 
++   dados[(n_treino + 1):n_dados, 'x'] %>% as.matrix()
+
+> metas_teste <- 
++   dados[(n_treino + 1):n_dados, 'y'] %>% as.matrix()
+
+> # Criar modelo ------------------------------------------------------------
+> 
+> rede1 <- keras_model_sequential() %>% 
++   layer_dense(40, activati .... [TRUNCATED] 
+
+> # Compilar ----------------------------------------------------------------
+> 
+> if (FLAGS$optimizer == 'rmsprop') {
++   opt <- optimizer_rmsprop(
++ .... [TRUNCATED] 
+
+> rede1 %>% 
++   compile(
++     optimizer = opt,
++     loss = 'mse',
++     metrics = 'mae'
++   )
+
+> # Treinar -----------------------------------------------------------------
+> 
+> historico1 <- rede1 %>% fit(
++   dados_treino, 
++   metas_treino, 
+ .... [TRUNCATED] ",NA,NA,runs/2023-09-01T17-07-52Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T17-10-51Z,0.0511,0,0.0044,0.0033,0.001,0,64,300,rmsprop,0,NA,300,300,runs/2023-09-01T17-10-51Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f18001ccbb0>,0.00100000004749745,exemplo-quadrado.R,2023-09-01T17:10:51Z,2023-09-01T17:12:10Z,TRUE,"
+> library(keras)
+
+> library(tfruns)
+
+> library(scales)
+
+> # Flags -------------------------------------------------------------------
+> 
+> FLAGS <- flags(
++   flag_numeric('learning_rate', 0.001),
++   flag_ .... [TRUNCATED] 
+
+> # Gerar dados normalizados ------------------------------------------------
+> 
+> minimo <- -100
+
+> maximo <- 100
+
+> dados <- tibble(
++   x = rescale(minimo:maximo),
++   y = rescale(x^2)
++ )
+
+> # Particionar -------------------------------------------------------------
+> 
+> n_dados <- nrow(dados)
+
+> prop_treino <- .8
+
+> n_treino <- (n_dados * prop_treino) %>% round(0)
+
+> dados_treino <- 
++   dados[1:n_treino, 'x'] %>% as.matrix()
+
+> metas_treino <- 
++   dados[1:n_treino, 'y'] %>% as.matrix()
+
+> dados_teste <- 
++   dados[(n_treino + 1):n_dados, 'x'] %>% as.matrix()
+
+> metas_teste <- 
++   dados[(n_treino + 1):n_dados, 'y'] %>% as.matrix()
+
+> # Criar modelo ------------------------------------------------------------
+> 
+> rede1 <- keras_model_sequential() %>% 
++   layer_dense(40, activati .... [TRUNCATED] 
+
+> # Compilar ----------------------------------------------------------------
+> 
+> if (FLAGS$optimizer == 'rmsprop') {
++   opt <- optimizer_rmsprop(
++ .... [TRUNCATED] 
+
+> rede1 %>% 
++   compile(
++     optimizer = opt,
++     loss = 'mse',
++     metrics = 'mae'
++   )
+
+> # Treinar -----------------------------------------------------------------
+> 
+> historico1 <- rede1 %>% fit(
++   dados_treino, 
++   metas_treino, 
+ .... [TRUNCATED] ",NA,NA,runs/2023-09-01T17-10-51Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T20-56-55Z,0.0582,0,0.0048,0.0046,0.001,0.1,201,500,rmsprop,NA,NA,500,500,runs/2023-09-01T20-56-55Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f741c2e9510>,0.00100000004749745,quadrado-run.R,2023-09-01T20:56:55Z,2023-09-01T21:02:56Z,TRUE,,NA,NA,runs/2023-09-01T20-56-55Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T21-38-19Z,0.069,0,0.0058,0.0059,0.001,0.1,201,500,rmsprop,NA,NA,500,500,runs/2023-09-01T21-38-19Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f6c9c59d9c0>,0.00100000004749745,quadrado-run.R,2023-09-01T21:38:19Z,2023-09-01T21:38:47Z,TRUE,,NA,NA,runs/2023-09-01T21-38-19Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T16-55-53Z,0.0727,1e-4,0.0074,0.0063,0.001,0,64,100,NA,0,NA,100,100,runs/2023-09-01T16-55-53Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f9b8d3d68f0>,0.00100000004749745,exemplo-quadrado.R,2023-09-01T16:55:53Z,2023-09-01T16:57:22Z,TRUE,"
+> library(keras)
+
+> library(tfruns)
+
+> library(scales)
+
+> # Flags -------------------------------------------------------------------
+> 
+> FLAGS <- flags(
++   flag_numeric('learning_rate', 0.001),
++   flag_ .... [TRUNCATED] 
+
+> # Gerar dados normalizados ------------------------------------------------
+> 
+> minimo <- -100
+
+> maximo <- 100
+
+> dados <- tibble(
++   x = rescale(minimo:maximo),
++   y = rescale(x^2)
++ )
+
+> # Particionar -------------------------------------------------------------
+> 
+> n_dados <- nrow(dados)
+
+> prop_treino <- .8
+
+> n_treino <- (n_dados * prop_treino) %>% round(0)
+
+> dados_treino <- 
++   dados[1:n_treino, 'x'] %>% as.matrix()
+
+> metas_treino <- 
++   dados[1:n_treino, 'y'] %>% as.matrix()
+
+> dados_teste <- 
++   dados[(n_treino + 1):n_dados, 'x'] %>% as.matrix()
+
+> metas_teste <- 
++   dados[(n_treino + 1):n_dados, 'y'] %>% as.matrix()
+
+> # Criar modelo ------------------------------------------------------------
+> 
+> rede1 <- keras_model_sequential() %>% 
++   layer_dense(40, activati .... [TRUNCATED] 
+
+> # Compilar ----------------------------------------------------------------
+> 
+> rede1 %>% 
++   compile(
++     optimizer = optimizer_rmsprop(
++      .... [TRUNCATED] 
+
+> # Treinar -----------------------------------------------------------------
+> 
+> historico1 <- rede1 %>% fit(
++   dados_treino, 
++   metas_treino, 
+ .... [TRUNCATED] ",NA,NA,runs/2023-09-01T16-55-53Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T17-09-31Z,0.0766,3.6356e-6,0.0013,0.0077,0.001,0,32,300,adam,0,NA,300,300,runs/2023-09-01T17-09-31Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.adam.Adam object at 0x7f180044d450>,0.00100000004749745,exemplo-quadrado.R,2023-09-01T17:09:31Z,2023-09-01T17:10:51Z,TRUE,"
+> library(keras)
+
+> library(tfruns)
+
+> library(scales)
+
+> # Flags -------------------------------------------------------------------
+> 
+> FLAGS <- flags(
++   flag_numeric('learning_rate', 0.001),
++   flag_ .... [TRUNCATED] 
+
+> # Gerar dados normalizados ------------------------------------------------
+> 
+> minimo <- -100
+
+> maximo <- 100
+
+> dados <- tibble(
++   x = rescale(minimo:maximo),
++   y = rescale(x^2)
++ )
+
+> # Particionar -------------------------------------------------------------
+> 
+> n_dados <- nrow(dados)
+
+> prop_treino <- .8
+
+> n_treino <- (n_dados * prop_treino) %>% round(0)
+
+> dados_treino <- 
++   dados[1:n_treino, 'x'] %>% as.matrix()
+
+> metas_treino <- 
++   dados[1:n_treino, 'y'] %>% as.matrix()
+
+> dados_teste <- 
++   dados[(n_treino + 1):n_dados, 'x'] %>% as.matrix()
+
+> metas_teste <- 
++   dados[(n_treino + 1):n_dados, 'y'] %>% as.matrix()
+
+> # Criar modelo ------------------------------------------------------------
+> 
+> rede1 <- keras_model_sequential() %>% 
++   layer_dense(40, activati .... [TRUNCATED] 
+
+> # Compilar ----------------------------------------------------------------
+> 
+> if (FLAGS$optimizer == 'rmsprop') {
++   opt <- optimizer_rmsprop(
++ .... [TRUNCATED] 
+
+> rede1 %>% 
++   compile(
++     optimizer = opt,
++     loss = 'mse',
++     metrics = 'mae'
++   )
+
+> # Treinar -----------------------------------------------------------------
+> 
+> historico1 <- rede1 %>% fit(
++   dados_treino, 
++   metas_treino, 
+ .... [TRUNCATED] ",NA,NA,runs/2023-09-01T17-09-31Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T20-50-39Z,0.0836,0,0.0048,0.0092,0.001,0.01,201,500,rmsprop,NA,NA,500,500,runs/2023-09-01T20-50-39Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7f74982a1480>,0.00100000004749745,quadrado-run.R,2023-09-01T20:50:39Z,2023-09-01T20:56:55Z,TRUE,,NA,NA,runs/2023-09-01T20-50-39Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T19-35-07Z,0.0868,1e-4,0.0092,0.009,0.002,0,201,500,rmsprop,0,NA,500,500,runs/2023-09-01T19-35-07Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff48b6ba830>,0.0020000000949949,exemplo-quadrado.R,2023-09-01T19:35:07Z,2023-09-01T19:38:13Z,TRUE,"
+> library(tidyverse)
+
+> library(keras)
+
+> library(tfruns)
+
+> library(scales)
+
+> # Flags -------------------------------------------------------------------
+> 
+> FLAGS <- flags(
++   flag_numeric('learning_rate', 0.001),
++   flag_ .... [TRUNCATED] 
+
+> # Gerar dados normalizados ------------------------------------------------
+> 
+> minimo <- -100
+
+> maximo <- 100
+
+> dados <- tibble(
++   x = rescale(minimo:maximo),
++   y = rescale(x^2)
++ )
+
+> # Particionar -------------------------------------------------------------
+> 
+> n_dados <- nrow(dados)
+
+> prop_treino <- .8
+
+> n_treino <- (n_dados * prop_treino) %>% round(0)
+
+> dados_treino <- 
++   dados[1:n_treino, 'x'] %>% as.matrix()
+
+> metas_treino <- 
++   dados[1:n_treino, 'y'] %>% as.matrix()
+
+> dados_teste <- 
++   dados[(n_treino + 1):n_dados, 'x'] %>% as.matrix()
+
+> metas_teste <- 
++   dados[(n_treino + 1):n_dados, 'y'] %>% as.matrix()
+
+> # Criar modelo ------------------------------------------------------------
+> 
+> rede1 <- keras_model_sequential() %>% 
++   layer_dense(40, activati .... [TRUNCATED] 
+
+> # Compilar ----------------------------------------------------------------
+> 
+> if (FLAGS$optimizer == 'rmsprop') {
++   opt <- optimizer_rmsprop(
++ .... [TRUNCATED] 
+
+> rede1 %>% 
++   compile(
++     optimizer = opt,
++     loss = 'mse',
++     metrics = 'mae'
++   )
+
+> # Treinar -----------------------------------------------------------------
+> 
+> historico1 <- rede1 %>% fit(
++   dados_treino, 
++   metas_treino, 
+ .... [TRUNCATED] ",NA,NA,runs/2023-09-01T19-35-07Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T17-14-50Z,0.0885,0,0.002,0.0098,0.001,0,128,300,adam,0,NA,300,300,runs/2023-09-01T17-14-50Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.adam.Adam object at 0x7f17995bec80>,0.00100000004749745,exemplo-quadrado.R,2023-09-01T17:14:50Z,2023-09-01T17:16:10Z,TRUE,"
+> library(keras)
+
+> library(tfruns)
+
+> library(scales)
+
+> # Flags -------------------------------------------------------------------
+> 
+> FLAGS <- flags(
++   flag_numeric('learning_rate', 0.001),
++   flag_ .... [TRUNCATED] 
+
+> # Gerar dados normalizados ------------------------------------------------
+> 
+> minimo <- -100
+
+> maximo <- 100
+
+> dados <- tibble(
++   x = rescale(minimo:maximo),
++   y = rescale(x^2)
++ )
+
+> # Particionar -------------------------------------------------------------
+> 
+> n_dados <- nrow(dados)
+
+> prop_treino <- .8
+
+> n_treino <- (n_dados * prop_treino) %>% round(0)
+
+> dados_treino <- 
++   dados[1:n_treino, 'x'] %>% as.matrix()
+
+> metas_treino <- 
++   dados[1:n_treino, 'y'] %>% as.matrix()
+
+> dados_teste <- 
++   dados[(n_treino + 1):n_dados, 'x'] %>% as.matrix()
+
+> metas_teste <- 
++   dados[(n_treino + 1):n_dados, 'y'] %>% as.matrix()
+
+> # Criar modelo ------------------------------------------------------------
+> 
+> rede1 <- keras_model_sequential() %>% 
++   layer_dense(40, activati .... [TRUNCATED] 
+
+> # Compilar ----------------------------------------------------------------
+> 
+> if (FLAGS$optimizer == 'rmsprop') {
++   opt <- optimizer_rmsprop(
++ .... [TRUNCATED] 
+
+> rede1 %>% 
++   compile(
++     optimizer = opt,
++     loss = 'mse',
++     metrics = 'mae'
++   )
+
+> # Treinar -----------------------------------------------------------------
+> 
+> historico1 <- rede1 %>% fit(
++   dados_treino, 
++   metas_treino, 
+ .... [TRUNCATED] ",NA,NA,runs/2023-09-01T17-14-50Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-01T17-12-10Z,0.0938,0,0.0032,0.011,0.001,0,64,300,adam,0,NA,300,300,runs/2023-09-01T17-12-10Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_2 (Dense)                    (None, 40)                      80          
+ dense_1 (Dense)                    (None, 20)                      820         
+ dense (Dense)                      (None, 1)                       21          
+================================================================================
+Total params: 921 (3.60 KB)
+Trainable params: 921 (3.60 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.adam.Adam object at 0x7f17995bfd60>,0.00100000004749745,exemplo-quadrado.R,2023-09-01T17:12:10Z,2023-09-01T17:13:30Z,TRUE,"
+> library(keras)
+
+> library(tfruns)
+
+> library(scales)
+
+> # Flags -------------------------------------------------------------------
+> 
+> FLAGS <- flags(
++   flag_numeric('learning_rate', 0.001),
++   flag_ .... [TRUNCATED] 
+
+> # Gerar dados normalizados ------------------------------------------------
+> 
+> minimo <- -100
+
+> maximo <- 100
+
+> dados <- tibble(
++   x = rescale(minimo:maximo),
++   y = rescale(x^2)
++ )
+
+> # Particionar -------------------------------------------------------------
+> 
+> n_dados <- nrow(dados)
+
+> prop_treino <- .8
+
+> n_treino <- (n_dados * prop_treino) %>% round(0)
+
+> dados_treino <- 
++   dados[1:n_treino, 'x'] %>% as.matrix()
+
+> metas_treino <- 
++   dados[1:n_treino, 'y'] %>% as.matrix()
+
+> dados_teste <- 
++   dados[(n_treino + 1):n_dados, 'x'] %>% as.matrix()
+
+> metas_teste <- 
++   dados[(n_treino + 1):n_dados, 'y'] %>% as.matrix()
+
+> # Criar modelo ------------------------------------------------------------
+> 
+> rede1 <- keras_model_sequential() %>% 
++   layer_dense(40, activati .... [TRUNCATED] 
+
+> # Compilar ----------------------------------------------------------------
+> 
+> if (FLAGS$optimizer == 'rmsprop') {
++   opt <- optimizer_rmsprop(
++ .... [TRUNCATED] 
+
+> rede1 %>% 
++   compile(
++     optimizer = opt,
++     loss = 'mse',
++     metrics = 'mae'
++   )
+
+> # Treinar -----------------------------------------------------------------
+> 
+> historico1 <- rede1 %>% fit(
++   dados_treino, 
++   metas_treino, 
+ .... [TRUNCATED] ",NA,NA,runs/2023-09-01T17-12-10Z/tfruns.d/source.tar.gz,local,training

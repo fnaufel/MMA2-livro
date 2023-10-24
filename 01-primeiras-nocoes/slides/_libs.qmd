@@ -1,0 +1,33 @@
+
+```{r echo=FALSE, message=FALSE}
+library(ggplot2)
+
+# Text size in plots
+plot_text_size = 25
+
+# Sober theme for ggplot
+theme_set(
+  theme_linedraw() +                         # Set simple theme for ggplot
+    theme(                                   # with some tweaks
+      text = element_text(size = plot_text_size),
+      axis.title.y.left = element_text(
+         angle = 0,                          # Never rotate y axis title
+         margin = margin(r = 20),            # Separate y axis title a little
+         vjust = .5                          # Leave y axis title in the middle
+      ),
+      axis.title.y.right = element_text(
+         angle = 0,                          # Never rotate y axis title
+         margin = margin(l = 20),            # Separate y axis title a little
+         vjust = .5                          # Leave y axis title in the middle
+      ),
+      axis.ticks.y.right = element_blank(),  # No ticks on secondary y axis
+      axis.title.x.bottom = element_text(
+         margin = margin(t = 20)             # Separate x axis title a little
+      ),
+      axis.line = element_blank(),           # No axis lines
+      panel.border = element_blank(),        # No frame
+      panel.grid.minor = element_blank()     # No grid minor lines
+    )
+)
+```
+

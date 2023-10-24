@@ -1,0 +1,223 @@
+---
+title: "Exemplo de RN: função quadrática"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+```{r setup}
+library(tidyverse)
+library(keras)
+library(tfruns)
+library(scales)
+
+# Text size in plots
+plot_text_size = 12
+
+# Sober theme for ggplot
+theme_set(
+  theme_linedraw() +                         # Set simple theme for ggplot
+    theme(                                   # with some tweaks
+      text = element_text(size = plot_text_size),
+      axis.title.y.left = element_text(
+         angle = 0,                          # Never rotate y axis title
+         margin = margin(r = 20),            # Separate y axis title a little
+         vjust = .5                          # Leave y axis title in the middle
+      ),
+      axis.title.y.right = element_text(
+         angle = 0,                          # Never rotate y axis title
+         margin = margin(l = 20),            # Separate y axis title a little
+         vjust = .5                          # Leave y axis title in the middle
+      ),
+      axis.ticks.y.right = element_blank(),  # No ticks on secondary y axis
+      axis.title.x.bottom = element_text(
+         margin = margin(t = 20)             # Separate x axis title a little
+      ),
+      axis.line = element_blank(),           # No axis lines
+      panel.border = element_blank(),        # No frame
+      panel.grid.minor = element_blank()     # No grid minor lines
+    )
+)
+
+
+```
+
+
+# Problema
+
+Implementar uma RN para computar $f(x) = x^2$ com $-100 \leq x \leq 100$.
+
+
+# Tuning
+
+## Todas do diretório `runs`
+
+```{r}
+df_runs <- ls_runs(
+  order = 'metric_mae',
+  decreasing = FALSE,
+  runs_dir = 'runs/'
+) %>% 
+  select(everything()) %>% 
+  as_tibble()
+
+df_runs
+```
+
+
+## Ver melhor de `runs`
+
+```{r}
+df_runs %>% 
+  head(1) %>% 
+  view_run()
+```
+
+
+## Comparar duas melhores de `runs`
+
+```{r}
+df_runs %>% 
+  head(2) %>% 
+  compare_runs()
+```
+
+
+## Copiar duas melhores para `best-runs`
+
+```{r}
+df_runs %>% 
+  head(2) %>% 
+  copy_run(to = 'best-runs')
+```
+
+
+## Ver conteúdo de `best-runs`
+
+```{r}
+df_best <- ls_runs(
+  order = 'metric_val_mae',
+  decreasing = FALSE,
+  runs_dir = 'best-runs/'
+) %>% 
+  select(everything()) %>% 
+  as_tibble()
+
+df_best
+```
+
+
+## Ver melhor de `best-runs`
+
+```{r}
+df_best %>% 
+  head(1) %>% 
+  view_run()
+```
+
+
+## Acrescentar MAE desnormalizado
+
+```{r}
+df_best %>% 
+  select(
+    run_dir,
+    metric_val_mae
+  ) %>% 
+  mutate(
+    metric_val_mae_unscaled = 1e4 * metric_val_mae
+  )
+```
+
+
+## Comparar duas melhores de `best-runs`
+
+```{r}
+df %>% head(2) %>% compare_runs()
+```
+
+
+
+# Treinar, salvar e rodar o melhor
+
+```{r}
+# minimo <- -100
+# maximo <- 100
+# dados <- tibble(
+#   x = rescale(minimo:maximo, c(-1, 1)),
+#   y = rescale(x^2)
+# )
+# 
+# dados_treino <- dados %>% pull(x) %>% as.matrix()
+# metas_treino <- dados %>% pull(y) %>% as.matrix()
+# 
+# rede <- keras_model_sequential() %>%
+#   layer_dense(200, activation = 'relu', input_shape = 1) %>%
+#   layer_dense(1)
+# 
+# opt <- optimizer_rmsprop(
+#   learning_rate = 0.001, 
+#   momentum = 0.1
+# )
+# 
+# rede %>% 
+#   compile(
+#     optimizer = opt,
+#     loss = 'mse',
+#     metrics = 'mae'
+#   )
+# 
+# historico <- rede %>% fit(
+#   dados_treino, 
+#   metas_treino, 
+#   epochs = 1000,
+#   batch_size = 201,
+#   validation_split = 0.2,
+#   verbose = 0
+# )
+# 
+# rede$save('quadrado-best')
+```
+
+```{r}
+# previsoes <- rede %>% 
+#   predict_on_batch(
+#     -50:50 %>% rescale(c(-.5, .5)) %>% as.matrix()
+#   ) %>% 
+#   rescale(c(0, 50^2))
+```
+
+```{r}
+# x <- -50:50
+# y <- x^2
+# 
+# resultados <- tibble(x, y, previsoes)
+# 
+# p <- resultados %>% 
+#   ggplot(aes(x)) +
+#     geom_line(aes(y = y), color = 'blue') +
+#     geom_point(aes(y = previsoes), alpha = .3, color = 'red', size = 2) +
+#     scale_x_continuous(breaks = seq(-50, 50, 10))
+#     
+# p
+```
+
+```{r}
+# ggsave(
+#   'quadrado.png',
+#   p
+# )
+```
+
+
+```{r}
+# resultados %>% 
+#   mutate(
+#     ae = abs(y - previsoes)
+#   ) %>% 
+#   ggplot(aes(x)) +
+#     geom_point(aes(y = ae))
+  
+```
+

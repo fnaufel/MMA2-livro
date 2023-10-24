@@ -1,0 +1,391 @@
+---
+title: "Redes Neurais"
+subtitle: "Primeiras Noções"
+author: Fernando Náufel
+institute: RCN, UFF
+date: 12 10 2023
+date-modified: 12 10 2023
+date-format: DD/MM/YYYY
+
+filters:
+  - code-fullscreen
+
+format:
+  revealjs: 
+    theme: simple
+    css: custom.css
+    width: 1600
+    height: 800
+    lang: pt
+    incremental: true
+    auto-stretch: false
+    menu:
+      numbers: true
+    slide-number: true
+    center: false
+    center-title-slide: true
+    preview-links: auto
+    progress: true
+    history: false
+    touch: true
+    keyboard: true
+    mouse-wheel: false
+    hide-inactive-cursor: true
+    hide-cursor-time: 100
+    controls: auto
+    pause: true
+    help: true
+    cap-location: bottom
+    code-copy: true
+    code-link: true
+    fig-align: center
+    link-external-icon: true
+    link-external-newwindow: true
+    execute: 
+      echo: false
+    # Se ativar embed-resources, desativar chalkboard:  
+    # embed-resources: true
+    chalkboard: 
+      theme: chalkboard
+      buttons: false
+    include-in-header: 
+      text: |
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    header-includes: |
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            jax: ["input/TeX","output/HTML-CSS"],
+            displayAlign: "left"
+        });
+      </script>
+    include-after-body: 
+      text: |
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    pointer:
+      alwaysVisible: false
+      pointerSize: 20
+
+revealjs-plugins:
+  - pointer
+  - attribution
+  - codefocus
+  
+bibliography: bibliography.bib
+---
+
+## Fonte
+
+{{< include _math.qmd >}}
+
+{{< include _libs.qmd >}}
+
+<div style='height: 50px'></div>
+
+Capítulo 10 de @james21:_introd_statis_learn.
+
+Playlist em <https://youtu.be/jJb2qytbcNg> (com os autores):
+
+<div style='height: 50px'></div>
+
+:::{style="width:610px; margin:auto;"}
+
+{{< video https://youtu.be/jJb2qytbcNg width="600" height="450" >}}
+
+:::
+
+
+## Nesta apresentação
+
+* Rede neural com uma camada oculta
+
+* Terminologia
+
+* Funções de ativação
+
+* ReLU
+
+* Pequeno exemplo
+
+
+## Rede neural com uma camada oculta
+
+![](images/uma-camada.png){fig-alt="Rede neural com uma camada oculta" .r-stretch fig-align="center"}
+
+:::{.attribution}
+Imagem: @james21:_introd_statis_learn
+:::
+
+
+## Rede neural com uma camada oculta {.smaller}
+
+:::::{.columns .nomarker}
+
+::::{.column width="40%"}
+
+<div style='height: 50px'></div>
+
+![](images/uma-camada.png){fig-alt="Rede neural com uma camada oculta"}
+
+::::
+
+::::{.column width="60%"}
+
+:::{.incremental}
+
+* $A_1 = h_1(\vet X)$
+
+* $\phantom{A_1} = h_1(X_1, X_2, X_3, X_4)$
+
+* $\phantom{A_1} = g\;(w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4)$
+
+* $\phantom{A_1} = g\left(
+  w_{10} 
+  + \sum_{j=1}^4 w_{1j} X_j\right)$
+  
+* $\mbox{}$
+
+* O [argumento de $g$]{.hl} é uma função [linear]{.hl} de $X_1, \ldots, X_4$,
+
+* mas [a função $g$]{.hl} é [não-linear]{.hl}.
+
+* Por exemplo, $\quad \displaystyle g(z) = \frac{e^z}{1 + e^z}\;,\quad$ chamada função [sigmóide]{.hl}.
+
+* (Se $g$ também fosse linear, estaríamos fazendo regressão linear!)
+
+:::
+
+::::
+
+:::::
+
+
+## Rede neural com uma camada oculta {.smaller}
+
+:::::{.columns .nomarker}
+
+::::{.column width="40%"}
+
+<div style='height: 50px'></div>
+
+![](images/uma-camada.png){fig-alt="Rede neural com uma camada oculta"}
+
+::::
+
+::::{.column width="60%"}
+
+:::{.nonincremental}
+
+* $A_i = h_i(\vet X)$
+
+* $\phantom{A_i} = h_i(X_1, X_2, X_3, X_4)$
+
+* $\phantom{A_i} = g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4)$
+
+* $\phantom{A_i} = g\left(
+  w_{i0} 
+  + \sum_{j=1}^4 w_{ij} X_j\right)$
+  
+* $\mbox{}$
+
+:::
+
+::: {.incremental}
+
+* $Y = f(\vet X)$
+
+* $\phantom{Y} = f(A_1, A_2, A_3, A_4, A_5)$
+
+* $\phantom{Y} = \beta_0 + \beta_1 A_1 + \beta_2 A_2 + \beta_3 A_3 + \beta_4 A_4 + \beta_5 A_5$
+
+* $\phantom{Y} = \beta_0 + \sum_{k=1}^5 \beta_k A_k$
+
+* $\phantom{Y ={}}$ (mas $f$ também pode ser uma função [não-linear]{.hl}.)
+
+:::
+
+::::
+
+:::::
+
+
+## Rede neural com uma camada oculta {.smaller}
+
+:::::{.columns .nomarker}
+
+::::{.column width="40%"}
+
+<div style='height: 50px'></div>
+
+![](images/uma-camada.png){fig-alt="Rede neural com uma camada oculta"}
+
+::::
+
+::::{.column width="60%"}
+
+:::{.nonincremental}
+
+* $A_i = g\left(w_{i0} + \sum_{j=1}^4 w_{ij} X_j\right)$
+  
+* $Y = \beta_0 + \sum_{k=1}^5 \beta_k A_k$
+
+:::
+
+:::{.incremental}
+
+* Terminologia:
+
+  * [Camada de entrada:]{.hl} $\, X_j,\, 1 \leq j \leq 4$
+  * [Camada oculta:]{.hl} $\, A_i,\, 1 \leq i \leq 5$
+  * [Camada de saída]{.hl}
+  * [Função de ativação:]{.hl} $\, g(\,)$
+  * [Pesos (ou parâmetros):]{.hl}
+    * $w_{ij},\, 1 \leq i \leq 5,\, 0 \leq j \leq 4\,\,$ ($25$ parâmetros)
+    * $\beta_k,\, 0 \leq k \leq 5\,\,$ ($6$ parâmetros)
+
+:::
+
+::::
+
+:::::
+
+
+## Exemplos de funções de ativação
+
+:::::{.columns}
+
+::::{.column width="50%"}
+
+:::{.callout-note appearance="minimal"}
+
+[Sigmóide:]{.hl}
+
+```{r}
+ggplot() +
+  stat_function(
+    fun = function(z) exp(z) / (1 + exp(z)),
+    xlim = c(-5, 5)
+  ) +
+  scale_x_continuous(breaks = seq(-5, 5, 1)) + 
+  labs(
+    y = NULL,
+    x = 'z'
+  )
+```
+ 
+$$
+\quad g(z) \quad=\quad \frac{e^z}{1 + e^z} \quad=\quad \frac{1}{1 + e^{-z}}
+$$
+
+:::
+
+::::
+
+::::{.column width="50%"}
+
+:::{.fragment}
+
+:::{.callout-note appearance="minimal"}
+
+[ReLU (Rectified Linear Unit):]{.hl}
+
+```{r}
+ggplot() +
+  stat_function(
+    fun = function(z) ifelse(z < 0, 0, z),
+    xlim = c(-5, 5)
+  ) +
+  scale_x_continuous(breaks = seq(-5, 5, 1)) + 
+  labs(
+    y = NULL,
+    x = 'z'
+  )
+```
+ 
+$$
+\quad g(z) \quad=\quad \begin{cases}
+  0 &\text{ se } z < 0 \\
+  z &\text{ se } z \geq 0 \\
+\end{cases}
+\quad=\quad \max(0, z)
+$$
+
+:::
+
+:::
+
+::::
+
+:::::
+
+
+## ReLUs aproximando uma função não-linear
+
+:::{.r-stack}
+
+![](images/relu-exemplos1.png){width=80% fig-align="center"}
+
+![](images/relu-exemplos2.png){width=80% fig-align="center" .fragment}
+
+![](images/relu-exemplos3.png){width=80% fig-align="center" .fragment}
+
+![](images/relu-exemplos4.png){width=80% fig-align="center" .fragment}
+
+![](images/relu-exemplos5.png){width=80% fig-align="center" .fragment}
+
+![](images/relu-exemplos5a.png){width=80% fig-align="center" .fragment}
+
+![](images/relu-exemplos6.png){width=80% fig-align="center" .fragment}
+
+![](images/relu-exemplos7.png){width=80% fig-align="center" .fragment}
+
+:::
+
+
+## Aproximando uma função quadrática
+
+::::{.columns}
+
+:::{.column width=50%}
+
+<div style='height: 100px'></div>
+
+![](images/quadrado-rede.png){fig-align="center"}
+
+* Uma camada oculta
+
+* $200$ neurônios
+
+* ReLU como função de ativação
+
+:::
+
+:::{.column width=50%}
+
+![](images/quadrado-resultados.png){fig-align="center" .fragment}
+
+:::
+
+::::
+
+
+---
+
+
+::::{.d-flex .justify-content-center .align-items-center .vh-100}
+
+:::{.text-center}
+
+A seguir: 
+
+treinando redes neurais
+
+:::
+
+::::
+
+
+## Referências
+
+<div style='height: 100px'></div>
+
+

@@ -1,0 +1,6 @@
+
+:::{.hidden}
+
+\providecommand{\vet}[1]{\overrightarrow{#1}}
+
+:::

@@ -1,0 +1,298 @@
+run_dir,metric_val_mae,metric_loss,metric_mae,metric_val_loss,flag_learning_rate,flag_momentum,flag_batch_size,flag_epochs,flag_optimizer,epochs,epochs_completed,metrics,model,loss_function,optimizer,learning_rate,script,start,end,completed,output,source_code,context,type
+runs/2023-09-03T17-05-46Z,0.0045,0,0.0049,0,0.001,0.1,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-05-46Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff1700d8550>,0.00100000004749745,quadrado-run.R,2023-09-03T17:05:46Z,2023-09-03T17:06:19Z,TRUE,,runs/2023-09-03T17-05-46Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-07-29Z,0.0053,1e-4,0.0061,1e-4,0.001,0.001,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-07-29Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7fef103a5870>,0.00100000004749745,quadrado-run.R,2023-09-03T17:07:29Z,2023-09-03T17:08:22Z,TRUE,,runs/2023-09-03T17-07-29Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-10-05Z,0.0058,1e-4,0.0058,1e-4,0.001,0.01,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-10-05Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff210dfa0b0>,0.00100000004749745,quadrado-run.R,2023-09-03T17:10:05Z,2023-09-03T17:10:56Z,TRUE,,runs/2023-09-03T17-10-05Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-12-39Z,0.0063,0,0.0055,1e-4,0.001,0.1,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-12-39Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0e821ec50>,0.00100000004749745,quadrado-run.R,2023-09-03T17:12:39Z,2023-09-03T17:13:33Z,TRUE,,runs/2023-09-03T17-12-39Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-00-28Z,0.0063,1e-4,0.0072,1e-4,0.001,0.01,201,500,rmsprop,500,500,runs/2023-09-03T17-00-28Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff1ef8787c0>,0.00100000004749745,quadrado-run.R,2023-09-03T17:00:28Z,2023-09-03T17:00:47Z,TRUE,,runs/2023-09-03T17-00-28Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-04-03Z,0.0064,0,0.0053,1e-4,0.001,0.01,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-04-03Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0d05454e0>,0.00100000004749745,quadrado-run.R,2023-09-03T17:04:03Z,2023-09-03T17:04:37Z,TRUE,,runs/2023-09-03T17-04-03Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-01-25Z,0.0065,1e-4,0.006,1e-4,0.001,0.1,201,500,rmsprop,500,500,runs/2023-09-03T17-01-25Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0d8377cd0>,0.00100000004749745,quadrado-run.R,2023-09-03T17:01:25Z,2023-09-03T17:01:43Z,TRUE,,runs/2023-09-03T17-01-25Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T16-59-29Z,0.007,1e-4,0.0069,1e-4,0.001,0.001,201,500,rmsprop,500,500,runs/2023-09-03T16-59-29Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff1732f9810>,0.00100000004749745,quadrado-run.R,2023-09-03T16:59:29Z,2023-09-03T16:59:53Z,TRUE,,runs/2023-09-03T16-59-29Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-02-19Z,0.0077,1e-4,0.006,1e-4,0.001,0.001,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-02-19Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0a8208ac0>,0.00100000004749745,quadrado-run.R,2023-09-03T17:02:19Z,2023-09-03T17:02:54Z,TRUE,,runs/2023-09-03T17-02-19Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-10-56Z,0.0079,2e-4,0.0114,1e-4,0.002,0.01,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-10-56Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0e8254220>,0.0020000000949949,quadrado-run.R,2023-09-03T17:10:56Z,2023-09-03T17:11:47Z,TRUE,,runs/2023-09-03T17-10-56Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-02-54Z,0.0095,2e-4,0.0109,1e-4,0.002,0.001,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-02-54Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff17329d4e0>,0.0020000000949949,quadrado-run.R,2023-09-03T17:02:54Z,2023-09-03T17:03:28Z,TRUE,,runs/2023-09-03T17-02-54Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-01-43Z,0.0097,2e-4,0.0108,2e-4,0.002,0.1,201,500,rmsprop,500,500,runs/2023-09-03T17-01-43Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0d8375bd0>,0.0020000000949949,quadrado-run.R,2023-09-03T17:01:43Z,2023-09-03T17:02:01Z,TRUE,,runs/2023-09-03T17-01-43Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-00-47Z,0.0097,2e-4,0.012,1e-4,0.002,0.01,201,500,rmsprop,500,500,runs/2023-09-03T17-00-47Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff1129f8490>,0.0020000000949949,quadrado-run.R,2023-09-03T17:00:47Z,2023-09-03T17:01:06Z,TRUE,,runs/2023-09-03T17-00-47Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-13-33Z,0.0098,2e-4,0.0103,2e-4,0.002,0.1,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-13-33Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0a80f5750>,0.0020000000949949,quadrado-run.R,2023-09-03T17:13:33Z,2023-09-03T17:14:28Z,TRUE,,runs/2023-09-03T17-13-33Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-06-19Z,0.0103,1e-4,0.0098,2e-4,0.002,0.1,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-06-19Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff14c4df9a0>,0.0020000000949949,quadrado-run.R,2023-09-03T17:06:19Z,2023-09-03T17:06:53Z,TRUE,,runs/2023-09-03T17-06-19Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T16-59-53Z,0.012,2e-4,0.0123,2e-4,0.002,0.001,201,500,rmsprop,500,500,runs/2023-09-03T16-59-53Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff20fb91cc0>,0.0020000000949949,quadrado-run.R,2023-09-03T16:59:53Z,2023-09-03T17:00:11Z,TRUE,,runs/2023-09-03T16-59-53Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-08-22Z,0.0125,2e-4,0.0103,3e-4,0.002,0.001,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-08-22Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff1129f8cd0>,0.0020000000949949,quadrado-run.R,2023-09-03T17:08:22Z,2023-09-03T17:09:13Z,TRUE,,runs/2023-09-03T17-08-22Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-04-37Z,0.0125,2e-4,0.0115,3e-4,0.002,0.01,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-04-37Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0d82bdf60>,0.0020000000949949,quadrado-run.R,2023-09-03T17:04:37Z,2023-09-03T17:05:11Z,TRUE,,runs/2023-09-03T17-04-37Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-09-14Z,0.0143,5e-4,0.0181,3e-4,0.004,0.001,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-09-14Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7fef104d4910>,0.00400000018998981,quadrado-run.R,2023-09-03T17:09:14Z,2023-09-03T17:10:05Z,TRUE,,runs/2023-09-03T17-09-14Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-05-11Z,0.0169,5e-4,0.0187,4e-4,0.004,0.01,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-05-11Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0d04104c0>,0.00400000018998981,quadrado-run.R,2023-09-03T17:05:11Z,2023-09-03T17:05:46Z,TRUE,,runs/2023-09-03T17-05-11Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-14-28Z,0.0178,4e-4,0.0146,4e-4,0.004,0.1,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-14-28Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff05c4e4310>,0.00400000018998981,quadrado-run.R,2023-09-03T17:14:28Z,2023-09-03T17:15:24Z,TRUE,,runs/2023-09-03T17-14-28Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-02-01Z,0.0193,6e-4,0.0193,5e-4,0.004,0.1,201,500,rmsprop,500,500,runs/2023-09-03T17-02-01Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0c834fcd0>,0.00400000018998981,quadrado-run.R,2023-09-03T17:02:01Z,2023-09-03T17:02:19Z,TRUE,,runs/2023-09-03T17-02-01Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-11-47Z,0.02,5e-4,0.0178,5e-4,0.004,0.01,201,1500,rmsprop,1500,1500,runs/2023-09-03T17-11-47Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff210dfbcd0>,0.00400000018998981,quadrado-run.R,2023-09-03T17:11:47Z,2023-09-03T17:12:39Z,TRUE,,runs/2023-09-03T17-11-47Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-03-28Z,0.02,6e-4,0.0191,6e-4,0.004,0.001,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-03-28Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff0a8208760>,0.00400000018998981,quadrado-run.R,2023-09-03T17:03:28Z,2023-09-03T17:04:03Z,TRUE,,runs/2023-09-03T17-03-28Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-06-53Z,0.0202,4e-4,0.0158,6e-4,0.004,0.1,201,1000,rmsprop,1000,1000,runs/2023-09-03T17-06-53Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff14c11df00>,0.00400000018998981,quadrado-run.R,2023-09-03T17:06:53Z,2023-09-03T17:07:29Z,TRUE,,runs/2023-09-03T17-06-53Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-01-06Z,0.0236,6e-4,0.0207,9e-4,0.004,0.01,201,500,rmsprop,500,500,runs/2023-09-03T17-01-06Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff14c4ddbd0>,0.00400000018998981,quadrado-run.R,2023-09-03T17:01:06Z,2023-09-03T17:01:25Z,TRUE,,runs/2023-09-03T17-01-06Z/tfruns.d/source.tar.gz,local,training
+runs/2023-09-03T17-00-11Z,0.0246,5e-4,0.0182,9e-4,0.004,0.001,201,500,rmsprop,500,500,runs/2023-09-03T17-00-11Z/tfruns.d/metrics.json,"Model: ""sequential""
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ dense_1 (Dense)                    (None, 200)                     400         
+ dense (Dense)                      (None, 1)                       201         
+================================================================================
+Total params: 601 (2.35 KB)
+Trainable params: 601 (2.35 KB)
+Non-trainable params: 0 (0.00 Byte)
+________________________________________________________________________________",mse,<keras.src.optimizers.rmsprop.RMSprop object at 0x7ff14c4ddff0>,0.00400000018998981,quadrado-run.R,2023-09-03T17:00:11Z,2023-09-03T17:00:28Z,TRUE,,runs/2023-09-03T17-00-11Z/tfruns.d/source.tar.gz,local,training

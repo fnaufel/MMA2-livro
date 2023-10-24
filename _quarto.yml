@@ -1,0 +1,49 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: 'Modelos Matemáticos para Aprendizado de Máquina 2'
+  author: "Fernando Náufel"
+  date: now
+  output-file: MMA2
+  search: true
+  repo-url: https://github.com/fnaufel/MMA2-livro
+  repo-actions: [edit]
+  # downloads: [pdf]
+  date-format: "DD/MM/YYYY HH:mm"
+  sharing: 
+    - twitter
+    - facebook
+    - linkedin
+  chapters:
+    - index.qmd
+    - references.qmd
+
+bibliography: bibliography.bib
+csl: universidade-do-porto-faculdade-de-engenharia-chicago-pt-crono.csl
+
+comments:
+  hypothesis: true
+
+format:
+  html:
+    toc-depth: 3
+    number-depth: 3
+    theme: 
+      - journal
+      - _custom.scss
+  # pdf:
+  #   documentclass: scrreprt
+  #   toc-depth: 3
+  #   number-depth: 3
+  #   fig-pos: htb
+  #   keep-tex: true
+  #   # filters: 
+  #   #   - filters/dollar.py3
+  #   #   - filters/hl.py3
+  #   include-in-header: 
+  #     - _preamble.tex
+  #   include-before-body:  
+  #     - _before-body.tex
+

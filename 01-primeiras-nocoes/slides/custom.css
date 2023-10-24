@@ -1,0 +1,17 @@
+
+/* Do not show markers in unordered lists */
+.nomarker ul {
+  list-style-type: none;
+}
+
+/* Make .smaller font a little larger */
+.reveal.smaller .slides section,
+.reveal .slides section.smaller,
+.reveal .slides section .callout{
+  font-size:0.8em
+}
+
+/* Highlight */
+.hl {
+  background-color: yellow;
+}

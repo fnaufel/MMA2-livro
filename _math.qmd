@@ -1,0 +1,19 @@
+
+::: {.hidden}
+
+\providecommand{\reais}{\mathbb{R}}           % reais
+\DeclareMathOperator{\sen}{\text{sen}}        % seno
+\providecommand{\vet}[1]{\mathbf{#1}}         % vetor
+\providecommand{\ve}[1]{\vet{e}_{#1}}         % vetor e_i
+\providecommand{\bl}[1]{\mathbf{#1}}          % blade
+\providecommand{\rev}[1]{\widetilde{#1}}      % reverso (til em cima)
+\providecommand{\rev2}[1]{#1^{~}}             % reverso (til à direita)
+\providecommand{\lc}{\rfloor}                 % contração à esq
+\providecommand{\rc}{\lfloor}                 % contração à dir
+\providecommand{\grau}{\text{grau}}           % grau
+\providecommand{\inv}[1]{#1^{-1}}             % inverso
+\providecommand{\dual}[1]{#1^{*}}             % dual
+\providecommand{\undual}[1]{#1^{-*}}          % undual
+\providecommand{\proj}[2]{\textsf{P}_{#2}[#1]}    % projeção
+
+:::

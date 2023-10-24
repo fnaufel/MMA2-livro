@@ -1,0 +1,8 @@
+
+{{< include _math.qmd >}}
+
+# Primeiras noções sobre redes neurais
+
+???
+
+

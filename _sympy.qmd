@@ -1,0 +1,54 @@
+
+```{r echo=FALSE}
+# Mostly sympy expressions will be output by code chunks:
+knitr::opts_chunk$set(
+  echo = FALSE,
+  output = 'asis'
+)
+```
+
+```{python echo=FALSE}
+from sympy import *
+from galgebra.ga import Ga
+import galgebra.printer
+from string import Template
+
+# tell sympy to use galgebra printing by default
+init_printing(
+  latex_printer=galgebra.printer.latex, 
+  use_latex='mathjax'
+)
+
+# Override Template substitution to generate LaTeX display math
+from collections import ChainMap as _ChainMap
+_sentinel_dict = {}
+
+class MyTemplate(Template):
+  # Override
+  def substitute(self, mapping=_sentinel_dict, /, **kws):
+    if mapping is _sentinel_dict:
+        mapping = kws
+    elif kws:
+        mapping = _ChainMap(kws, mapping)
+    def convert(mo):
+        named = mo.group('named') or mo.group('braced')
+        if named is not None:
+            expr = mapping[named]
+            # Here I convert the pĺaceholders to LaTeX expressions
+            expr = latex(expr)
+            return expr
+        if mo.group('escaped') is not None:
+            return self.delimiter
+        if mo.group('invalid') is not None:
+            self._invalid(mo)
+        raise ValueError('Unrecognized named group in pattern',
+                         self.pattern)
+    return self.pattern.sub(convert, self.template)
+
+# Function to be called to print a template string 
+# with its placeholders replaced with LaTeX expressions
+def show(x, mapping=locals()):
+  t = MyTemplate(x)
+  print('\n$$' + t.substitute(mapping) + '$$\n')
+```
+
