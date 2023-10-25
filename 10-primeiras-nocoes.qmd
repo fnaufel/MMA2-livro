@@ -5,7 +5,7 @@
 
 ## Fonte
 
-Este capítulo transcreve uma [apresentação de *slides* que fiz sobre este assunto](???).
+Este capítulo transcreve uma [apresentação de *slides* que fiz sobre este assunto](slides/10-primeiras-nocoes/slides-001.html).
 
 Boa parte do material apresentado aqui vem do capítulo 10 do livro @james21:_introd_statis_learn, que também está [disponível *online*](https://www.statlearning.com/).
 
