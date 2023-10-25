@@ -1,0 +1,274 @@
+---
+title: "Exemplo de RN: distância à origem"
+format: html
+---
+
+```{r setup}
+library(tidyverse)
+library(keras)
+```
+
+
+
+# Problema
+
+Dado um ponto $P = (x,y)$, calcular a distância $d$ de $P$ à origem.
+
+$$
+d = \sqrt{x^2 + y^2}
+$$
+
+
+# Gerar dados
+
+```{r}
+n_dados <- 500
+xy_min <- -5
+xy_max <- 5
+x <- runif(n_dados, min = xy_min, max = xy_max) %>% round(1)
+y <- runif(n_dados, min = xy_min, max = xy_max) %>% round(1)
+d <- sqrt(x^2 + y^2) %>% round(3)
+dados <- tibble(x, y, d)
+dados
+```
+
+
+# Normalizar *features*
+
+A função de normalização do Keras usa a norma $L2$:
+
+```{r}
+normalize(1:5)
+```
+
+```{r}
+(1:5) / sqrt(sum((1:5)^2))
+```
+
+Ou seja, $x_i$ é mapeado em 
+
+$$
+\frac{x_i}{\sqrt{\sum x_i^2}}
+$$
+
+Outras normas são possíveis:
+
+```{r}
+normalize(1:5, order = 1)
+```
+
+```{r}
+(1:5) / sum(1:5)
+```
+
+```{r}
+normalize(1:5, order = 3)
+```
+
+```{r}
+(1:5) / sum((1:5)^3)^(1/3)
+```
+
+Vamos usar $L2$. 
+
+::: {.callout-warning title='Cuidado'}
+
+`normalize` retorna uma matriz!
+
+:::
+
+```{r}
+x_norm <- normalize(dados$x)[1,]
+y_norm <- normalize(dados$y)[1,]
+
+dados_norm <- dados %>% 
+  mutate(
+    x = x_norm,
+    y = y_norm
+  )
+
+dados_norm
+```
+
+
+# Separar dados
+
+```{r}
+prop_treino <- .8
+n_treino <- (n_dados * prop_treino) %>% round(0)
+
+dados_treino <- 
+  dados_norm[1:n_treino, c('x', 'y')] %>% as.matrix()
+
+metas_treino <- 
+  dados_norm[1:n_treino, 'd'] %>% as.matrix()
+
+dados_teste <- 
+  dados_norm[(n_treino + 1):n_dados, c('x', 'y')] %>% as.matrix()
+
+metas_teste <- 
+  dados_norm[(n_treino + 1):n_dados, 'd'] %>% as.matrix()
+```
+
+
+# Montar, treinar e avaliar redes
+
+## Uma única camada oculta
+
+```{r}
+n_unidades <- 20
+
+rede1 <- keras_model_sequential() %>% 
+  layer_dense(n_unidades, activation = 'relu') %>% 
+  layer_dense(1)
+
+rede1 %>% compile(
+  optimizer = 'rmsprop',
+  loss = 'mse',
+  metrics = 'mae'
+)
+```
+
+```{r cache=TRUE}
+n_epochs <- 100
+tamanho_batch <- 32
+
+historico1 <- rede1 %>% fit(
+  dados_treino, 
+  metas_treino, 
+  epochs = n_epochs, 
+  batch_size = tamanho_batch
+)
+```
+
+```{r}
+rede1 %>% 
+  evaluate(
+    dados_teste,
+    metas_teste,
+    tamanho_batch
+  )
+```
+
+Não é um resultado bom, principalmente dadas as distâncias do conjunto de dados:
+
+```{r}
+summary(dados_norm$d)
+```
+
+
+## Duas camadas ocultas
+
+```{r}
+rede2 <- keras_model_sequential() %>% 
+  layer_dense(30, activation = 'relu') %>% 
+  layer_dense(20, activation = 'relu') %>% 
+  layer_dense(1)
+
+rede2 %>% compile(
+  optimizer = 'rmsprop',
+  loss = 'mse',
+  metrics = 'mae'
+)
+```
+
+```{r cache=TRUE}
+n_epochs <- 100
+tamanho_batch <- 32
+
+historico2 <- rede2 %>% fit(
+  dados_treino, 
+  metas_treino, 
+  epochs = n_epochs, 
+  batch_size = tamanho_batch
+)
+```
+
+```{r}
+rede2 %>% 
+  evaluate(
+    dados_teste,
+    metas_teste,
+    tamanho_batch
+  )
+```
+
+Não melhorou.
+
+
+## Três camadas ocultas
+
+```{r}
+rede3 <- keras_model_sequential() %>% 
+  layer_dense(30, activation = 'relu') %>% 
+  layer_dense(20, activation = 'relu') %>% 
+  layer_dense(10, activation = 'relu') %>% 
+  layer_dense(1)
+
+rede3 %>% compile(
+  optimizer = 'rmsprop',
+  loss = 'mse',
+  metrics = 'mae'
+)
+```
+
+```{r cache=TRUE}
+n_epochs <- 100
+tamanho_batch <- 32
+
+historico3 <- rede3 %>% fit(
+  dados_treino, 
+  metas_treino, 
+  epochs = n_epochs, 
+  batch_size = tamanho_batch
+)
+```
+
+```{r}
+rede3 %>% 
+  evaluate(
+    dados_teste,
+    metas_teste,
+    tamanho_batch
+  )
+```
+
+Talvez eu precise mudar a taxa de aprendizado.
+
+
+## Três camadas ocultas, com taxa de aprendizado diferente
+
+```{r}
+rede4 <- keras_model_sequential() %>% 
+  layer_dense(40, activation = 'relu') %>% 
+  layer_dense(40, activation = 'relu') %>% 
+  layer_dense(40, activation = 'relu') %>% 
+  layer_dense(1)
+
+rede4 %>% compile(
+  optimizer = optimizer_rmsprop(.026),
+  loss = 'mse',
+  metrics = 'mae'
+)
+```
+
+```{r cache=TRUE}
+n_epochs <- 500
+tamanho_batch <- 32
+
+historico4 <- rede4 %>% fit(
+  dados_treino, 
+  metas_treino, 
+  epochs = n_epochs, 
+  batch_size = tamanho_batch
+)
+```
+
+```{r}
+rede4 %>% 
+  evaluate(
+    dados_teste,
+    metas_teste,
+    tamanho_batch
+  )
+```

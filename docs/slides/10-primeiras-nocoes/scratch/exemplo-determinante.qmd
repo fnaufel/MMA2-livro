@@ -1,0 +1,50 @@
+---
+title: "Exemplo de RN: determinante"
+format: html
+---
+
+```{r setup}
+library(tidyverse)
+library(keras)
+library(tfruns)
+```
+
+
+
+# Problema
+
+Dados $a, b, c, d \in \{ -10, -9, \ldots, 9, 10 \}$, calcular o determinante da matriz
+
+$$
+\pmatrix{a & b\\c & d}
+$$
+
+i.e., $ad - bc$.
+
+Com valores inteiros entre $-10$ e $-10$, são $21^4 = 194.481$ linhas.
+
+Fazer normalização das entradas em função dos extremos `minimo` e `maximo`, para produzir valores entre $-1$ e $1$.
+
+E normalizar saídas em função do menor determinante possível ($-100$) e do maior determinante possível ($100$) para produzir valores entre $-1$ e $1$.
+
+
+# Tuning
+
+```{r}
+flags_list <- list(
+  learning_rate = c(0.001),
+  decay = c(0),
+  momentum = c(0),
+  batch_size = c(1024),
+  epochs = c(500)
+)
+```
+
+```{r}
+execs <- tuning_run(
+  'exemplo-determinante.R',
+  flags = flags_list,
+  confirm = FALSE
+)
+```
+

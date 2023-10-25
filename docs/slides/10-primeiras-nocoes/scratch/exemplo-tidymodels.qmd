@@ -1,0 +1,79 @@
+---
+title: "Exemplo de RN"
+format: html
+---
+
+```{r setup}
+library(tidymodels)
+tidymodels_prefer()
+```
+
+```{r}
+mlp_keras_spec <-
+  mlp(
+    hidden_units = 5, 
+    epochs = 100, 
+    activation = 'relu',
+  learn_rate = 7.5
+  ) %>%
+  set_engine('keras') %>%
+  set_mode('regression')
+
+mlp_keras_spec
+```
+
+```{r}
+criar_dados <- function(n) {
+
+  x1 <- runif(n) %>% round(2)
+  y1 <- runif(n) %>% round(2)
+  x2 <- runif(n) %>% round(2)
+  y2 <- runif(n) %>% round(2)
+  # res <- abs(x1 - x2) + abs(y1 - y2)
+  res <- x1 * x2 + y1 * y2
+  tibble(
+    x1 %>% scale(), 
+    y1 %>% scale(), 
+    x2 %>% scale(), 
+    y2 %>% scale(), 
+    res
+  )
+  
+}
+```
+
+```{r}
+dados <- criar_dados(11000)
+treino <- dados[1:10000,]
+teste <- dados[10001:11000,]
+```
+
+```{r}
+mlp_keras_fit <- mlp_keras_spec %>% 
+  fit(
+    res ~ ., data = treino
+  )
+```
+
+```{r}
+mlp_keras_test <- 
+  teste %>% 
+  select(res) %>% 
+  bind_cols(
+    predict(mlp_keras_fit, teste)
+  )
+
+mlp_keras_test
+```
+
+```{r}
+mlp_keras_test %>% 
+  mutate(.pred = round(.pred, 2)) %>% 
+  summarise(
+    mad = mean(abs(res - .pred)),
+    minimo = min(abs(res - .pred)),
+    mediana = median(abs(res - .pred)),
+    maximo = max(abs(res - .pred))
+  )
+```
+

@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: docs
+  resources: slides
 
 book:
   title: 'Modelos Matemáticos para Aprendizado de Máquina 2'
@@ -9,6 +10,7 @@ book:
   output-file: MMA2
   search: true
   repo-url: https://github.com/fnaufel/MMA2-livro
+  repo-branch: master
   repo-actions: [edit]
   # downloads: [pdf]
   date-format: "DD/MM/YYYY HH:mm"
