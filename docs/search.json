@@ -5,5 +5,26 @@
     "title": "Modelos Matemáticos para Aprendizado de Máquina 2",
     "section": "",
     "text": "% reais % seno\n% vetor\n% vetor e_i\n% blade\n% reverso (til em cima) \\providecommand{}[1]{#1^{~}} % reverso (til à direita) % contração à esq % contração à dir % grau\n% inverso\n% dual\n% undual\n% projeção\n\n\nApresentação\n???"
+  },
+  {
+    "objectID": "10-primeiras-nocoes.html#fonte",
+    "href": "10-primeiras-nocoes.html#fonte",
+    "title": "1  Primeiras noções sobre redes neurais",
+    "section": "1.1 Fonte",
+    "text": "1.1 Fonte\nBoa parte do material apresentado aqui vem do capítulo 10 do livro James et al. (2021), que também está disponível online.\nAlém disso, você pode assistir a uma playlist com mais de 100 vídeos, sobre os assuntos do livro, apresentados pelos próprios autores."
+  },
+  {
+    "objectID": "10-primeiras-nocoes.html#sumário",
+    "href": "10-primeiras-nocoes.html#sumário",
+    "title": "1  Primeiras noções sobre redes neurais",
+    "section": "1.2 Sumário",
+    "text": "1.2 Sumário\n???\n\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2.ª ed. Springer Publishing Company, Incorporated. https://www.statlearning.com/."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Referências",
+    "section": "",
+    "text": "James, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021.\nAn Introduction to Statistical Learning: With Applications in\nR. 2.ª ed. Springer Publishing Company, Incorporated. https://www.statlearning.com/."
   }
 ]

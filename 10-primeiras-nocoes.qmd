@@ -3,6 +3,17 @@
 
 # Primeiras noções sobre redes neurais
 
+## Fonte
+
+Boa parte do material apresentado aqui vem do capítulo 10 do livro @james21:_introd_statis_learn, que também está [disponível *online*](https://www.statlearning.com/).
+
+Além disso, você pode assistir a [uma *playlist* com mais de 100 vídeos](https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e), sobre os assuntos do livro, apresentados pelos próprios autores.
+
+![](slides/10-primeiras-nocoes/captured/slide001.png){fig-alt="slide com informações sobre a fonte" fig-align="center"}
+
+
+## Sumário
+
 ???
 
 

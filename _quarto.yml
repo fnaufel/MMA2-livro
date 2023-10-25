@@ -18,6 +18,7 @@ book:
     - linkedin
   chapters:
     - index.qmd
+    - 10-primeiras-nocoes.qmd
     - references.qmd
 
 bibliography: bibliography.bib
@@ -33,6 +34,9 @@ format:
     theme: 
       - journal
       - _custom.scss
+    link-external-icon: true
+    link-external-newwindow: true
+    link-external-filter: ^(?:http:|https:)\/\/fnaufel\.github\.io
   # pdf:
   #   documentclass: scrreprt
   #   toc-depth: 3

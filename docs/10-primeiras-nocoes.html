@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Fernando Náufel">
 
-<title>Modelos Matemáticos para Aprendizado de Máquina 2</title>
+<title>Modelos Matemáticos para Aprendizado de Máquina 2 - 1&nbsp; Primeiras noções sobre redes neurais</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,7 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./10-primeiras-nocoes.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Apresentação</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-primeiras-nocoes.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primeiras noções sobre redes neurais</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -128,13 +147,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-primeiras-nocoes.html" class="sidebar-item-text sidebar-link">
+  <a href="./10-primeiras-nocoes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primeiras noções sobre redes neurais</span></span></a>
   </div>
 </li>
@@ -154,35 +173,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#apresentação" id="toc-apresentação" class="nav-link active" data-scroll-target="#apresentação">Apresentação</a></li>
+  <li><a href="#fonte" id="toc-fonte" class="nav-link active" data-scroll-target="#fonte"><span class="header-section-number">1.1</span> Fonte</a></li>
+  <li><a href="#sumário" id="toc-sumário" class="nav-link" data-scroll-target="#sumário"><span class="header-section-number">1.2</span> Sumário</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/fnaufel/MMA2-livro/edit/main/index.qmd" class="toc-action">Editar essa página</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/fnaufel/MMA2-livro/edit/main/10-primeiras-nocoes.qmd" class="toc-action">Editar essa página</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Modelos Matemáticos para Aprendizado de Máquina 2</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primeiras noções sobre redes neurais</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor</div>
-    <div class="quarto-title-meta-contents">
-             <p>Fernando Náufel </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Data de Publicação</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">25/10/2023 15:18</p>
-    </div>
-  </div>
   
     
   </div>
@@ -201,11 +209,26 @@ ul.task-list li input[type="checkbox"] {
 % undual
 <p>% projeção</p>
 </div>
-<section id="apresentação" class="level1 unnumbered">
-<h1 class="unnumbered">Apresentação</h1>
+<section id="fonte" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="fonte"><span class="header-section-number">1.1</span> Fonte</h2>
+<p>Boa parte do material apresentado aqui vem do capítulo 10 do livro <span class="citation" data-cites="james21:_introd_statis_learn">James et al. (<a href="references.html#ref-james21:_introd_statis_learn" role="doc-biblioref">2021</a>)</span>, que também está <a href="https://www.statlearning.com/">disponível <em>online</em></a>.</p>
+<p>Além disso, você pode assistir a <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e">uma <em>playlist</em> com mais de 100 vídeos</a>, sobre os assuntos do livro, apresentados pelos próprios autores.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide001.png" class="img-fluid figure-img" alt="slide com informações sobre a fonte"></p>
+</figure>
+</div>
+</section>
+<section id="sumário" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sumário"><span class="header-section-number">1.2</span> Sumário</h2>
 <p>???</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-james21:_introd_statis_learn" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: With Applications in R</em>. 2.ª ed. Springer Publishing Company, Incorporated. <a href="https://www.statlearning.com/">https://www.statlearning.com/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -460,10 +483,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Apresentação</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./10-primeiras-nocoes.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primeiras noções sobre redes neurais</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Referências</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
