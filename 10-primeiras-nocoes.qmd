@@ -5,15 +5,124 @@
 
 ## Fonte
 
+Este capítulo transcreve uma [apresentação de *slides* que fiz sobre este assunto](???).
+
 Boa parte do material apresentado aqui vem do capítulo 10 do livro @james21:_introd_statis_learn, que também está [disponível *online*](https://www.statlearning.com/).
 
 Além disso, você pode assistir a [uma *playlist* com mais de 100 vídeos](https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e), sobre os assuntos do livro, apresentados pelos próprios autores.
+
+
 
 ![](slides/10-primeiras-nocoes/captured/slide001.png){fig-alt="slide com informações sobre a fonte" fig-align="center"}
 
 
 ## Sumário
 
-???
+![](slides/10-primeiras-nocoes/captured/slide002.png){fig-alt="slide com sumário" fig-align="center"}
 
+
+## O que é uma rede neural
+
+Neste diagrama, vemos uma rede neural com uma camada oculta.
+
+Os quatro nós à esquerda ($X_1$ a $X_4$) representam simplesmente os valores dos [dados de entrada]{.hl} da rede.
+
+Os cinco nós azuis na coluna do meio ($A_1$ a $A_5$) formam a camada onde a maior parte da computação acontece.
+
+O nó cor-de-rosa à direita produz o [valor de saída]{.hl} da rede.
+
+![](slides/10-primeiras-nocoes/captured/slide003.png){fig-alt="diagrama com rede neural" fig-align="center"}
+
+As setas indicam como os valores dos nós são usados nas computações.
+
+Por exemplo, [o nó $A_1$ calcula uma função]{.hl} dos quatro valores de entrada. Vamos chamar esta função de $h_1$:
+
+$$
+A_1 = h_1(\vet X) = h_1(X_1, X_2, X_3, X_4)
+$$
+
+($\vet X$ significa um [vetor]{.hl} de valores, aqui com $4$ elementos.)
+
+A função $h_1$ começa calculando uma [combinação linear]{.hl} dos elementos do vetor
+
+$$
+w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4
+$$
+
+Os coeficientes $w_{ij}$ são chamados de [pesos, ou parâmetros]{.hl}.
+
+Você pode imaginar que, no diagrama, cada seta corresponde a um peso:
+
+* $w_{11}$ corresponde à seta de $X_1$ para $A_1$,
+* $w_{12}$ corresponde à seta de $X_2$ para $A_1$,
+* $w_{13}$ corresponde à seta de $X_3$ para $A_1$, e assim por diante.
+
+(Mas, aqui, a seta que corresponde a $w_{10}$ não é mostrada. Algumas fontes representariam este peso como uma seta que vem "do nada" para o nó $A_1$.)
+
+O resultado desta combinação linear é enviado para uma função $g$, fazendo, então, com que a [saída do nó $A_1$]{.hl} seja
+
+$$
+A_1 = g\;(w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4)
+$$
+
+ou, usando notação de somatório, mais compacta,
+
+$$
+A_1 = g\left(
+  w_{10} 
+  + \sum_{j=1}^4 w_{1j} X_j\right)
+$$
+
+A função $g$ é chamada de [função de ativação]{.hl}, e costuma ser uma função [não-linear]{.hl}, como, por exemplo, a função sigmóide.
+
+A idéia é que, se a função $g$ fosse linear, a rede neural seria equivalente a regressão linear. 
+
+Ou seja, [é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que outros modelos não são capazes de computar.]{.hl}
+
+![](slides/10-primeiras-nocoes/captured/slide004.png){fig-alt="equações para um nó da rede" fig-align="center"}
+
+Os outros nós da camada oculta, $A_2$ a $A_5$, computam funções parecidas com a função computada pelo nó $A_1$, [mas com outros pesos]{.hl}.
+
+Ou seja, no geral, [para cada nó $A_i$]{.hl},
+
+$$
+\begin{aligned}
+A_i &= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
+&= g\left(
+  w_{i0} 
+  + \sum_{j=1}^4 w_{ij} X_j\right)
+\end{aligned}
+$$
+
+(A função de ativação $g$ costuma ser a mesma para todos os nós de uma mesma camada.)
+
+Terminada a computação da camada oculta, os valores de saída de $A_1$ a $A_5$ são enviados para o (único) nó da última camada, que produz $Y$, o [valor de saída]{.hl} da rede:
+
+$$
+\begin{aligned}
+  Y 
+  &= \beta_0 + \beta_1 A_1 + \beta_2 A_2 + \beta_3 A_3 + \beta_4 A_4 + \beta_5 A_5 \\
+  &= \beta_0 + \sum_{k=1}^5 \beta_k A_k
+\end{aligned}
+$$
+
+Aqui, neste exemplo, $Y$ é função linear das saídas dos nós da camada oculta, mas é comum que $Y$ também seja não-linear.
+
+![](slides/10-primeiras-nocoes/captured/slide005.png){fig-alt="equações para todos os nós da rede" fig-align="center"}
+
+Nesta computação, os $\beta_k$ também são chamados de [pesos, ou parâmetros]{.hl}.
+
+Para esta rede, o conjunto de parâmetros consiste de
+
+* $w_{ij},\, 1 \leq i \leq 5,\, 0 \leq j \leq 4$ ($25$ parâmetros),
+* $\beta_k,\, 0 \leq k \leq 5$ ($6$ parâmetros).
+
+Esta rede tem, no total, $31$ parâmetros.
+
+![](slides/10-primeiras-nocoes/captured/slide006.png){fig-alt="terminologia" fig-align="center"}
+
+
+## Exemplos de funções de ativação
+
+Já vimos que a função de ativação costuma ser não-linear.
 

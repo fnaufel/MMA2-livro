@@ -82,6 +82,8 @@ div.csl-indent {
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -175,6 +177,8 @@ div.csl-indent {
   <ul>
   <li><a href="#fonte" id="toc-fonte" class="nav-link active" data-scroll-target="#fonte"><span class="header-section-number">1.1</span> Fonte</a></li>
   <li><a href="#sumário" id="toc-sumário" class="nav-link" data-scroll-target="#sumário"><span class="header-section-number">1.2</span> Sumário</a></li>
+  <li><a href="#o-que-é-uma-rede-neural" id="toc-o-que-é-uma-rede-neural" class="nav-link" data-scroll-target="#o-que-é-uma-rede-neural"><span class="header-section-number">1.3</span> O que é uma rede neural</a></li>
+  <li><a href="#funções-de-ativação" id="toc-funções-de-ativação" class="nav-link" data-scroll-target="#funções-de-ativação"><span class="header-section-number">1.4</span> Funções de ativação</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/fnaufel/MMA2-livro/edit/master/10-primeiras-nocoes.qmd" class="toc-action">Editar essa página</a></p></div></div></nav>
     </div>
@@ -199,18 +203,12 @@ div.csl-indent {
 </header>
 
 <div class="hidden">
-% reais % seno
-% vetor
-% vetor e_i
-% blade
-% reverso (til em cima) \providecommand{}[1]{#1^{~}} % reverso (til à direita) % contração à esq % contração à dir % grau
-% inverso
-% dual
-% undual
-<p>% projeção</p>
+% reais
+<p>% vetor</p>
 </div>
 <section id="fonte" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="fonte"><span class="header-section-number">1.1</span> Fonte</h2>
+<p>Este capítulo transcreve uma <a href="???">apresentação de <em>slides</em> que fiz sobre este assunto</a>.</p>
 <p>Boa parte do material apresentado aqui vem do capítulo 10 do livro <span class="citation" data-cites="james21:_introd_statis_learn">James et al. (<a href="references.html#ref-james21:_introd_statis_learn" role="doc-biblioref">2021</a>)</span>, que também está <a href="https://www.statlearning.com/">disponível <em>online</em></a>.</p>
 <p>Além disso, você pode assistir a <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e">uma <em>playlist</em> com mais de 100 vídeos</a>, sobre os assuntos do livro, apresentados pelos próprios autores.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -221,7 +219,98 @@ div.csl-indent {
 </section>
 <section id="sumário" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sumário"><span class="header-section-number">1.2</span> Sumário</h2>
-<p>???</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide002.png" class="img-fluid figure-img" alt="slide com sumário"></p>
+</figure>
+</div>
+</section>
+<section id="o-que-é-uma-rede-neural" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="o-que-é-uma-rede-neural"><span class="header-section-number">1.3</span> O que é uma rede neural</h2>
+<p>Neste diagrama, vemos uma rede neural com uma camada oculta.</p>
+<p>Os quatro nós à esquerda (<span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_4\)</span>) representam simplesmente os valores dos <span class="hl">dados de entrada</span> da rede.</p>
+<p>Os cinco nós azuis na coluna do meio (<span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_5\)</span>) formam a camada onde a maior parte da computação acontece.</p>
+<p>O nó cor-de-rosa à direita produz o <span class="hl">valor de saída</span> da rede.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide003.png" class="img-fluid figure-img" alt="diagrama com rede neural"></p>
+</figure>
+</div>
+<p>As setas indicam como os valores dos nós são usados nas computações.</p>
+<p>Por exemplo, <span class="hl">o nó <span class="math inline">\(A_1\)</span> calcula uma função</span> dos quatro valores de entrada. Vamos chamar esta função de <span class="math inline">\(h_1\)</span>:</p>
+<p><span class="math display">\[
+A_1 = h_1(\overrightarrow{X}) = h_1(X_1, X_2, X_3, X_4)
+\]</span></p>
+<p>(<span class="math inline">\(\overrightarrow{X}\)</span> significa um <span class="hl">vetor</span> de valores, aqui com <span class="math inline">\(4\)</span> elementos.)</p>
+<p>A função <span class="math inline">\(h_1\)</span> começa calculando uma <span class="hl">combinação linear</span> dos elementos do vetor</p>
+<p><span class="math display">\[
+w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4
+\]</span></p>
+<p>Os coeficientes <span class="math inline">\(w_{ij}\)</span> são chamados de <span class="hl">pesos</span>.</p>
+<p>Você pode imaginar que, no diagrama, cada seta corresponde a um peso:</p>
+<ul>
+<li><span class="math inline">\(w_{11}\)</span> corresponde à seta de <span class="math inline">\(X_1\)</span> para <span class="math inline">\(A_1\)</span>,</li>
+<li><span class="math inline">\(w_{12}\)</span> corresponde à seta de <span class="math inline">\(X_2\)</span> para <span class="math inline">\(A_1\)</span>,</li>
+<li><span class="math inline">\(w_{13}\)</span> corresponde à seta de <span class="math inline">\(X_3\)</span> para <span class="math inline">\(A_1\)</span>, e assim por diante.</li>
+</ul>
+<p>(Mas, aqui, a seta que corresponde a <span class="math inline">\(w_{10}\)</span> não é mostrada. Algumas fontes representariam este peso como uma seta que vem “do nada” para o nó <span class="math inline">\(A_1\)</span>.)</p>
+<p>O resultado desta combinação linear é enviado para uma função <span class="math inline">\(g\)</span>, fazendo, então, com que a <span class="hl">saída do nó <span class="math inline">\(A_1\)</span></span> seja</p>
+<p><span class="math display">\[
+A_1 = g\;(w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4)
+\]</span></p>
+<p>ou, usando notação de somatório, mais compacta,</p>
+<p><span class="math display">\[
+A_1 = g\left(
+  w_{10}
+  + \sum_{j=1}^4 w_{1j} X_j\right)
+\]</span></p>
+<p>A função <span class="math inline">\(g\)</span> é chamada de <span class="hl">função de ativação</span>, e costuma ser uma função <span class="hl">não-linear</span>, como, por exemplo, a função sigmóide.</p>
+<p>A idéia é que, se a função <span class="math inline">\(g\)</span> fosse linear, a rede neural seria equivalente a regressão linear.</p>
+<p>Ou seja, <span class="hl">é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que outros modelos não são capazes de computar.</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide004.png" class="img-fluid figure-img" alt="equações para um nó da rede"></p>
+</figure>
+</div>
+<p>Os outros nós da camada oculta, <span class="math inline">\(A_2\)</span> a <span class="math inline">\(A_5\)</span>, computam funções parecidas com a função computada pelo nó <span class="math inline">\(A_1\)</span>, <span class="hl">mas com outros pesos</span>.</p>
+<p>Ou seja, no geral,</p>
+<p><span class="math display">\[
+\begin{aligned}
+A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
+&amp;= g\left(
+  w_{i0}
+  + \sum_{j=1}^4 w_{ij} X_j\right)
+\end{aligned}
+\]</span></p>
+<p>(A função de ativação <span class="math inline">\(g\)</span> costuma ser a mesma para todos os nós de uma mesma camada.)</p>
+<p>Terminada a computação da camada oculta, os valores de saída de <span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_5\)</span> são enviados para o (único) nó da última camada, que produz a saída <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+  Y
+  &amp;= \beta_0 + \beta_1 A_1 + \beta_2 A_2 + \beta_3 A_3 + \beta_4 A_4 + \beta_5 A_5 \\
+  &amp;= \beta_0 + \sum_{k=1}^5 \beta_k A_k
+\end{aligned}
+\]</span></p>
+<p>Aqui, neste exemplo, <span class="math inline">\(Y\)</span> é função linear das saídas dos nós da camada oculta, mas é comum que a função computada pelos nós da camada de saída da rede também seja não-linear.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide005.png" class="img-fluid figure-img" alt="equações para todos os nós da rede"></p>
+</figure>
+</div>
+<p>Nesta computação, os <span class="math inline">\(\beta_k\)</span> também são chamados de <span class="hl">pesos</span>.</p>
+<p>Chamamos de <span class="hl">parâmetros</span> da rede o conjunto dos valores</p>
+<ul>
+<li><span class="math inline">\(w_{ij},\, 1 \leq i \leq 5,\, 0 \leq j \leq 4\)</span> (<span class="math inline">\(25\)</span> parâmetros),</li>
+<li><span class="math inline">\(\beta_k,\, 0 \leq k \leq 5\)</span> (<span class="math inline">\(6\)</span> parâmetros).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide006.png" class="img-fluid figure-img" alt="terminologia"></p>
+</figure>
+</div>
+</section>
+<section id="funções-de-ativação" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="funções-de-ativação"><span class="header-section-number">1.4</span> Funções de ativação</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
