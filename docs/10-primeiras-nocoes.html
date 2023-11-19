@@ -210,7 +210,7 @@ div.csl-indent {
 <h2 data-number="1.1" class="anchored" data-anchor-id="fonte"><span class="header-section-number">1.1</span> Fonte</h2>
 <p>Este capítulo transcreve uma <a href="slides/10-primeiras-nocoes/slides-001.html">apresentação de <em>slides</em> que fiz sobre este assunto</a>.</p>
 <p>Boa parte do material apresentado aqui vem do capítulo 10 do livro <span class="citation" data-cites="james21:_introd_statis_learn">James et al. (<a href="references.html#ref-james21:_introd_statis_learn" role="doc-biblioref">2021</a>)</span>, que também está <a href="https://www.statlearning.com/">disponível <em>online</em></a>.</p>
-<p>Além disso, você pode assistir a <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e">uma <em>playlist</em> com mais de 100 vídeos</a>, sobre os assuntos do livro, apresentados pelos próprios autores.</p>
+<p>Além disso, você pode assistir a <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e">uma <em>playlist</em> com mais de 100 vídeos</a>, sobre os assuntos do livro <span class="citation" data-cites="james21:_introd_statis_learn">James et al. (<a href="references.html#ref-james21:_introd_statis_learn" role="doc-biblioref">2021</a>)</span>, apresentados pelos próprios autores.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide001.png" class="img-fluid figure-img" alt="slide com informações sobre a fonte"></p>
@@ -228,9 +228,9 @@ div.csl-indent {
 <section id="o-que-é-uma-rede-neural" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="o-que-é-uma-rede-neural"><span class="header-section-number">1.3</span> O que é uma rede neural</h2>
 <p>Neste diagrama, vemos uma rede neural com uma camada oculta.</p>
-<p>Os quatro nós à esquerda (<span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_4\)</span>) representam simplesmente os valores dos <span class="hl">dados de entrada</span> da rede.</p>
-<p>Os cinco nós azuis na coluna do meio (<span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_5\)</span>) formam a camada onde a maior parte da computação acontece.</p>
-<p>O nó cor-de-rosa à direita produz o <span class="hl">valor de saída</span> da rede.</p>
+<p>Os quatro nós à esquerda (<span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_4\)</span>) representam simplesmente os valores dos <span class="hl">dados de entrada</span> da rede. Apesar de não acontecer nenhuma computação nestes nós, muitas fontes consideram que estes nós formam a <span class="hl">camada de entrada</span>.</p>
+<p>Os cinco nós azuis na coluna do meio (<span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_5\)</span>) formam a camada onde a maior parte da computação acontece. É a <span class="hl">camada oculta</span>.</p>
+<p>O nó cor-de-rosa à direita produz o <span class="hl">valor de saída</span> da rede. É a <span class="hl">camada de saída</span>. Nem sempre a camada de saída vai consistir de um único nó.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide003.png" class="img-fluid figure-img" alt="diagrama com rede neural"></p>
@@ -242,7 +242,7 @@ div.csl-indent {
 A_1 = h_1(\overrightarrow{X}) = h_1(X_1, X_2, X_3, X_4)
 \]</span></p>
 <p>(<span class="math inline">\(\overrightarrow{X}\)</span> significa um <span class="hl">vetor</span> de valores, aqui com <span class="math inline">\(4\)</span> elementos.)</p>
-<p>A função <span class="math inline">\(h_1\)</span> começa calculando uma <span class="hl">combinação linear</span> dos elementos do vetor</p>
+<p>A função <span class="math inline">\(h_1\)</span> começa calculando esta <span class="hl">combinação linear</span> dos elementos do vetor:</p>
 <p><span class="math display">\[
 w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4
 \]</span></p>
@@ -264,8 +264,8 @@ A_1 = g\left(
   w_{10}
   + \sum_{j=1}^4 w_{1j} X_j\right)
 \]</span></p>
-<p>A função <span class="math inline">\(g\)</span> é chamada de <span class="hl">função de ativação</span>, e costuma ser uma função <span class="hl">não-linear</span>, como, por exemplo, a função sigmóide.</p>
-<p>A idéia é que, se a função <span class="math inline">\(g\)</span> fosse linear, a rede neural seria equivalente a regressão linear.</p>
+<p>A função <span class="math inline">\(g\)</span> é chamada de <span class="hl">função de ativação</span>, e costuma ser uma função <span class="hl">não-linear</span>, como, por exemplo, a função ReLU, que vamos ver mais adiante.</p>
+<p>Se a função <span class="math inline">\(g\)</span> fosse linear, a rede neural seria equivalente a regressão linear.</p>
 <p>Ou seja, <span class="hl">é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que outros modelos não são capazes de computar.</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -282,7 +282,7 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
   + \sum_{j=1}^4 w_{ij} X_j\right)
 \end{aligned}
 \]</span></p>
-<p>(A função de ativação <span class="math inline">\(g\)</span> costuma ser a mesma para todos os nós de uma mesma camada.)</p>
+<p>A função de ativação <span class="math inline">\(g\)</span> costuma ser a mesma para todos os nós de uma mesma camada.</p>
 <p>Terminada a computação da camada oculta, os valores de saída de <span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_5\)</span> são enviados para o (único) nó da última camada, que produz <span class="math inline">\(Y\)</span>, o <span class="hl">valor de saída</span> da rede:</p>
 <p><span class="math display">\[
 \begin{aligned}

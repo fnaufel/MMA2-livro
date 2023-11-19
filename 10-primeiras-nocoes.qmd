@@ -9,7 +9,7 @@ Este capítulo transcreve uma [apresentação de *slides* que fiz sobre este ass
 
 Boa parte do material apresentado aqui vem do capítulo 10 do livro @james21:_introd_statis_learn, que também está [disponível *online*](https://www.statlearning.com/).
 
-Além disso, você pode assistir a [uma *playlist* com mais de 100 vídeos](https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e), sobre os assuntos do livro, apresentados pelos próprios autores.
+Além disso, você pode assistir a [uma *playlist* com mais de 100 vídeos](https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e), sobre os assuntos do livro @james21:_introd_statis_learn, apresentados pelos próprios autores.
 
 
 
@@ -25,11 +25,11 @@ Além disso, você pode assistir a [uma *playlist* com mais de 100 vídeos](http
 
 Neste diagrama, vemos uma rede neural com uma camada oculta.
 
-Os quatro nós à esquerda ($X_1$ a $X_4$) representam simplesmente os valores dos [dados de entrada]{.hl} da rede.
+Os quatro nós à esquerda ($X_1$ a $X_4$) representam simplesmente os valores dos [dados de entrada]{.hl} da rede. Apesar de não acontecer nenhuma computação nestes nós, muitas fontes consideram que estes nós formam a [camada de entrada]{.hl}.
 
-Os cinco nós azuis na coluna do meio ($A_1$ a $A_5$) formam a camada onde a maior parte da computação acontece.
+Os cinco nós azuis na coluna do meio ($A_1$ a $A_5$) formam a camada onde a maior parte da computação acontece. É a [camada oculta]{.hl}.
 
-O nó cor-de-rosa à direita produz o [valor de saída]{.hl} da rede.
+O nó cor-de-rosa à direita produz o [valor de saída]{.hl} da rede. É a [camada de saída]{.hl}. Nem sempre a camada de saída vai consistir de um único nó.
 
 ![](slides/10-primeiras-nocoes/captured/slide003.png){fig-alt="diagrama com rede neural" fig-align="center"}
 
@@ -43,7 +43,7 @@ $$
 
 ($\vet X$ significa um [vetor]{.hl} de valores, aqui com $4$ elementos.)
 
-A função $h_1$ começa calculando uma [combinação linear]{.hl} dos elementos do vetor
+A função $h_1$ começa calculando esta [combinação linear]{.hl} dos elementos do vetor:
 
 $$
 w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4
@@ -73,9 +73,9 @@ A_1 = g\left(
   + \sum_{j=1}^4 w_{1j} X_j\right)
 $$
 
-A função $g$ é chamada de [função de ativação]{.hl}, e costuma ser uma função [não-linear]{.hl}, como, por exemplo, a função sigmóide.
+A função $g$ é chamada de [função de ativação]{.hl}, e costuma ser uma função [não-linear]{.hl}, como, por exemplo, a função ReLU, que vamos ver mais adiante.
 
-A idéia é que, se a função $g$ fosse linear, a rede neural seria equivalente a regressão linear. 
+Se a função $g$ fosse linear, a rede neural seria equivalente a regressão linear.
 
 Ou seja, [é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que outros modelos não são capazes de computar.]{.hl}
 
@@ -94,7 +94,7 @@ A_i &= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 \end{aligned}
 $$
 
-(A função de ativação $g$ costuma ser a mesma para todos os nós de uma mesma camada.)
+A função de ativação $g$ costuma ser a mesma para todos os nós de uma mesma camada.
 
 Terminada a computação da camada oculta, os valores de saída de $A_1$ a $A_5$ são enviados para o (único) nó da última camada, que produz $Y$, o [valor de saída]{.hl} da rede:
 
