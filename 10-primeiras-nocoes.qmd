@@ -29,7 +29,7 @@ Os quatro nós à esquerda ($X_1$ a $X_4$) representam simplesmente os valores d
 
 Os cinco nós azuis na coluna do meio ($A_1$ a $A_5$) formam a camada onde a maior parte da computação acontece. É a [camada oculta]{.hl}.
 
-O nó cor-de-rosa à direita produz o [valor de saída]{.hl} da rede. É a [camada de saída]{.hl}. Nem sempre a camada de saída vai consistir de um único nó.
+O nó cor-de-rosa à direita produz o [valor de saída]{.hl} da rede. É a [camada de saída]{.hl}. Nem sempre a camada de saída vai consistir de apenas um nó.
 
 ![](slides/10-primeiras-nocoes/captured/slide003.png){fig-alt="diagrama com rede neural" fig-align="center"}
 
@@ -43,7 +43,7 @@ $$
 
 ($\vet X$ significa um [vetor]{.hl} de valores, aqui com $4$ elementos.)
 
-A função $h_1$ começa calculando esta [combinação linear]{.hl} dos elementos do vetor:
+A função $h_1$ começa calculando a seguinte [combinação linear]{.hl} dos elementos do vetor:
 
 $$
 w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4
@@ -57,7 +57,7 @@ Você pode imaginar que, no diagrama, cada seta corresponde a um peso:
 * $w_{12}$ corresponde à seta de $X_2$ para $A_1$,
 * $w_{13}$ corresponde à seta de $X_3$ para $A_1$, e assim por diante.
 
-(Mas, aqui, a seta que corresponde a $w_{10}$ não é mostrada. Algumas fontes representariam este peso como uma seta que vem "do nada" para o nó $A_1$.)
+Mas, aqui, a seta que corresponde a $w_{10}$ não é mostrada. Algumas fontes representariam este peso como uma seta que vem "do nada" para o nó $A_1$. Outras fontes representariam este peso como um valor dentro do nó $A_1$.
 
 O resultado desta combinação linear é enviado para uma função $g$, fazendo, então, com que a [saída do nó $A_1$]{.hl} seja
 
@@ -73,11 +73,11 @@ A_1 = g\left(
   + \sum_{j=1}^4 w_{1j} X_j\right)
 $$
 
-A função $g$ é chamada de [função de ativação]{.hl}, e costuma ser uma função [não-linear]{.hl}, como, por exemplo, a função ReLU, que vamos ver mais adiante.
+A função $g$ é chamada de [função de ativação]{.hl}, e costuma ser uma função [não-linear]{.hl}. Mais adiante, vamos ver exemplos específicos de funções de ativação.
 
 Se a função $g$ fosse linear, a rede neural seria equivalente a regressão linear.
 
-Ou seja, [é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que outros modelos não são capazes de computar.]{.hl}
+Ou seja, [é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que modelos não-lineares não são capazes de computar.]{.hl}
 
 ![](slides/10-primeiras-nocoes/captured/slide004.png){fig-alt="equações para um nó da rede" fig-align="center"}
 
@@ -106,18 +106,25 @@ $$
 \end{aligned}
 $$
 
-Aqui, neste exemplo, $Y$ é função linear das saídas dos nós da camada oculta, mas é comum que $Y$ também seja não-linear.
+Aqui, neste exemplo, $Y$ é função linear das saídas dos nós da camada oculta, mas é comum que $Y$ também seja resultado de uma função não-linear.
 
 ![](slides/10-primeiras-nocoes/captured/slide005.png){fig-alt="equações para todos os nós da rede" fig-align="center"}
 
-Nesta computação, os $\beta_k$ também são chamados de [pesos, ou parâmetros]{.hl}.
+Resumindo, os valores dos nós são:
 
-Para esta rede, o conjunto de parâmetros consiste de
+  $$
+  \begin{aligned}
+  A_i &= g\left(w_{i0} + \sum_{j=1}^4 w_{ij} X_j\right) \\
+  Y &= \beta_0 + \sum_{k=1}^5 \beta_k A_k
+  \end{aligned}
+  $$
+
+Esta rede tem $4$ entradas, uma camada oculta com $5$ unidades e função de ativação $g()$, uma camada de saída com uma unidade (com função de ativação linear), e, como pesos (ou parâmetros), o seguinte conjunto de valores:
 
 * $w_{ij},\, 1 \leq i \leq 5,\, 0 \leq j \leq 4$ ($25$ parâmetros),
 * $\beta_k,\, 0 \leq k \leq 5$ ($6$ parâmetros).
 
-Esta rede tem, no total, $31$ parâmetros.
+Esta rede tem, então, $31$ parâmetros no total.
 
 ![](slides/10-primeiras-nocoes/captured/slide006.png){fig-alt="terminologia" fig-align="center"}
 
@@ -126,3 +133,63 @@ Esta rede tem, no total, $31$ parâmetros.
 
 Já vimos que a função de ativação costuma ser não-linear.
 
+Um exemplo é a [função sigmóide]{.hl}, que sempre retorna valores entre $0$ e $1$ (exclusive) e que tem o gráfico mostrado abaixo. Esta função "comprime", por assim dizer, todos os números reais para o intervalo $(0, 1)$.
+
+Historicamente, a função sigmóide foi uma das primeiras a ser usadas como função de ativação, mas atualmente damos preferência a outras, que são menos problemáticas. Mais adiante, vamos falar sobre isto.
+
+A função sigmóide é útil, por exemplo, quando o nó precisa retornar uma [probabilidade]{.hl} (que é um valor entre $0$ e $1$).
+
+Outro exemplo de função de ativação é a [ReLU]{.hl}, bem mais simples de ser computada (e entendida). Se o argumento é negativo, a ReLU retorna zero; senão, retorna o próprio argumento. Atualmente, é uma das funções de ativação mais usadas.
+
+![](slides/10-primeiras-nocoes/captured/slide007.png){fig-alt="exemplos de funções de ativação" fig-align="center"}
+
+Você pode achar que a ReLU, uma função que simplesmente zera os argumentos que estão abaixo de zero, é simples demais para aproximar funções lineares. Este exemplo mostra que não:
+
+Vamos considerar a função $f(x) = x^2 - 21x + 104$:
+
+![](slides/10-primeiras-nocoes/captured/slide008.png){fig-alt="aproximando uma função não-linear com ReLU" fig-align="center"}
+
+Começamos com uma função linear: $f_1(x) = x/3 - 10/3$.
+
+![](slides/10-primeiras-nocoes/captured/slide009.png){fig-alt="aproximando uma função não-linear com ReLU (2)" fig-align="center"}
+
+A seguir, aplicamos ReLU a esta reta:
+
+![](slides/10-primeiras-nocoes/captured/slide010.png){fig-alt="aproximando uma função não-linear com ReLU (3)" fig-align="center"}
+
+Agora, computamos outra função linear: $f_2(x) = -x/3 + 3$.
+
+![](slides/10-primeiras-nocoes/captured/slide011.png){fig-alt="aproximando uma função não-linear com ReLU (4)" fig-align="center"}
+
+Aplicamos ReLU a esta reta também:
+
+![](slides/10-primeiras-nocoes/captured/slide012.png){fig-alt="aproximando uma função não-linear com ReLU (5)" fig-align="center"}
+
+Somamos as duas ReLUs obtidas:
+
+![](slides/10-primeiras-nocoes/captured/slide013.png){fig-alt="aproximando uma função não-linear com ReLU (6)" fig-align="center"}
+
+Não ficou muito próxima da função original.
+
+Em vez de somar as duas ReLUs, vamos calcular uma combinação linear delas:
+
+![](slides/10-primeiras-nocoes/captured/slide014.png){fig-alt="aproximando uma função não-linear com ReLU (7)" fig-align="center"}
+
+Agora, sim, o resultado aproxima a função $f$ original.
+
+Se usássemos mais funções lineares e aplicássemos mais ReLUs a elas, a aproximação seria melhor ainda.
+
+
+## Exemplo: aproximando uma função quadrática
+
+???
+
+
+## Regressão *versus* classificação
+
+???
+
+
+## Exercícios
+
+???

@@ -242,8 +242,8 @@ Imagem: @james21:_introd_statis_learn
 
   * [Camada de entrada:]{.hl} $\, X_j,\, 1 \leq j \leq 4$
   * [Camada oculta:]{.hl} $\, A_i,\, 1 \leq i \leq 5$
-  * [Camada de saída]{.hl}
   * [Função de ativação:]{.hl} $\, g(\,)$
+  * [Camada de saída]{.hl}
   * [Pesos (ou parâmetros):]{.hl}
     * $w_{ij},\, 1 \leq i \leq 5,\, 0 \leq j \leq 4\,\,$ ($25$ parâmetros)
     * $\beta_k,\, 0 \leq k \leq 5\,\,$ ($6$ parâmetros)
@@ -374,20 +374,13 @@ $$
 ::::
 
 
----
+## Regressão *versus* classificação
 
+* Regressão: saídas da rede são valores numéricos da função que queremos aproximar, como neste exemplo. 
 
-::::{.d-flex .justify-content-center .align-items-center .vh-100}
+* Classificação: saídas da rede são rótulos de classes ou probabilidades. 
 
-:::{.text-center}
-
-A seguir: 
-
-treinando redes neurais
-
-:::
-
-::::
+* Exemplo de classificação mais adiante.
 
 
 ## Referências

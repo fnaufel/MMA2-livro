@@ -15,3 +15,8 @@
 .hl {
   background-color: yellow;
 }
+
+/* underlined links */
+a {
+  text-decoration: underline !important;
+}
