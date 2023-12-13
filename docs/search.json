@@ -35,13 +35,6 @@
     "text": "1.4 Exemplos de funções de ativação\nJá vimos que a função de ativação costuma ser não-linear.\nUm exemplo é a função sigmóide, que sempre retorna valores entre \\(0\\) e \\(1\\) (exclusive) e que tem o gráfico mostrado abaixo. Esta função “comprime”, por assim dizer, todos os números reais para o intervalo \\((0, 1)\\).\nHistoricamente, a função sigmóide foi uma das primeiras a ser usadas como função de ativação, mas atualmente damos preferência a outras, que são menos problemáticas. Mais adiante, vamos falar sobre isto.\nA função sigmóide é útil, por exemplo, quando o nó precisa retornar uma probabilidade (que é um valor entre \\(0\\) e \\(1\\)).\nOutro exemplo de função de ativação é a ReLU, bem mais simples de ser computada (e entendida). Se o argumento é negativo, a ReLU retorna zero; senão, retorna o próprio argumento. Atualmente, é uma das funções de ativação mais usadas.\n\n\n\n\n\nVocê pode achar que a ReLU, uma função que simplesmente zera os argumentos que estão abaixo de zero, é simples demais para aproximar funções lineares. Este exemplo mostra que não:\nVamos considerar a função \\(f(x) = x^2 - 21x + 104\\):\n\n\n\n\n\nComeçamos com uma função linear: \\(f_1(x) = x/3 - 10/3\\).\n\n\n\n\n\nA seguir, aplicamos ReLU a esta reta:\n\n\n\n\n\nAgora, computamos outra função linear: \\(f_2(x) = -x/3 + 3\\).\n\n\n\n\n\nAplicamos ReLU a esta reta também:\n\n\n\n\n\nSomamos as duas ReLUs obtidas:\n\n\n\n\n\nNão ficou muito próxima da função original.\nEm vez de somar as duas ReLUs, vamos calcular uma combinação linear delas:\n\n\n\n\n\nAgora, sim, o resultado aproxima a função \\(f\\) original.\nSe usássemos mais funções lineares e aplicássemos mais ReLUs a elas, a aproximação seria melhor ainda."
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "Referências",
-    "section": "",
-    "text": "James, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021.\nAn Introduction to Statistical Learning: With Applications in\nR. 2.ª ed. Springer Publishing Company, Incorporated. https://www.statlearning.com/."
-  },
-  {
     "objectID": "10-primeiras-nocoes.html#exemplo-aproximando-uma-função-quadrática",
     "href": "10-primeiras-nocoes.html#exemplo-aproximando-uma-função-quadrática",
     "title": "1  Primeiras noções sobre redes neurais",
@@ -53,6 +46,20 @@
     "href": "10-primeiras-nocoes.html#regressão-versus-classificação",
     "title": "1  Primeiras noções sobre redes neurais",
     "section": "1.6 Regressão versus classificação",
-    "text": "1.6 Regressão versus classificação\n???\n\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2.ª ed. Springer Publishing Company, Incorporated. https://www.statlearning.com/."
+    "text": "1.6 Regressão versus classificação\n???\n\nRegressão: saídas da rede são valores numéricos da função que queremos aproximar, como neste exemplo.\nClassificação: saídas da rede são rótulos de classes ou probabilidades.\nExemplo de classificação mais adiante."
+  },
+  {
+    "objectID": "10-primeiras-nocoes.html#exercícios",
+    "href": "10-primeiras-nocoes.html#exercícios",
+    "title": "1  Primeiras noções sobre redes neurais",
+    "section": "1.7 Exercícios",
+    "text": "1.7 Exercícios\n???\n\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2.ª ed. Springer Publishing Company, Incorporated. https://www.statlearning.com/."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Referências",
+    "section": "",
+    "text": "James, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021.\nAn Introduction to Statistical Learning: With Applications in\nR. 2.ª ed. Springer Publishing Company, Incorporated. https://www.statlearning.com/."
   }
 ]

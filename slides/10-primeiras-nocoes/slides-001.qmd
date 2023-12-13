@@ -3,8 +3,8 @@ title: "Redes Neurais: Primeiras Noções"
 subtitle: "[(clique aqui para a transcrição)](file:///home/fnaufel/Documents/UFF/Ensino/Disciplinas/MMA/MMA2-livro/docs/10-primeiras-nocoes.html)"
 author: Fernando Náufel
 institute: RCN, UFF
-date: 12 10 2023
-date-modified: 19 11 2023
+date: 13 12 2023
+date-modified: 13 12 2023
 date-format: DD/MM/YYYY
 
 filters:
@@ -376,11 +376,45 @@ $$
 
 ## Regressão *versus* classificação
 
-* Regressão: saídas da rede são valores numéricos da função que queremos aproximar, como neste exemplo. 
+:::::{.columns .r-stretch}
 
-* Classificação: saídas da rede são rótulos de classes ou probabilidades. 
+::::{.column width="50%"}
 
-* Exemplo de classificação mais adiante.
+:::{.callout-note appearance="minimal"}
+
+[Regressão:]{.hl}
+
+<div style='height: 50px'></div>
+
+![](images/regressao.png){fig-alt="regressão" width=100% fig-align="center"}
+
+<div style='height: 50px'></div>
+
+:::
+
+::::
+
+::::{.column width="50%"}
+
+:::{.callout-note appearance="minimal"}
+
+[Classificação:]{.hl}
+
+<div style='height: 50px'></div>
+
+![](images/classification.png){fig-alt="regressão" width=100% fig-align="center"}
+
+<div style='height: 50px'></div>
+
+:::
+
+::::
+
+:::::
+
+:::{.attribution}
+Imagem: <https://commons.wikimedia.org/wiki/File:MultiLayerPerceptron.svg> (CC BY SA)
+:::
 
 
 ## Referências

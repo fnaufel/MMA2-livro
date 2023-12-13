@@ -376,11 +376,45 @@ $$
 
 ## Regressão *versus* classificação
 
-* Regressão: saídas da rede são valores numéricos da função que queremos aproximar, como neste exemplo. 
+:::::{.columns .r-stretch}
 
-* Classificação: saídas da rede são rótulos de classes ou probabilidades. 
+::::{.column width="50%"}
 
-* Exemplo de classificação mais adiante.
+:::{.callout-note appearance="minimal"}
+
+[Regressão:]{.hl}
+
+<div style='height: 50px'></div>
+
+![](images/regressao.png){fig-alt="regressão" width=100% fig-align="center"}
+
+<div style='height: 50px'></div>
+
+:::
+
+::::
+
+::::{.column width="50%"}
+
+:::{.callout-note appearance="minimal"}
+
+[Classificação:]{.hl}
+
+<div style='height: 50px'></div>
+
+![](images/classification.png){fig-alt="regressão" width=100% fig-align="center"}
+
+<div style='height: 50px'></div>
+
+:::
+
+::::
+
+:::::
+
+:::{.attribution}
+Imagem: <https://commons.wikimedia.org/wiki/File:MultiLayerPerceptron.svg> (CC BY SA)
+:::
 
 
 ## Referências

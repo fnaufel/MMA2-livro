@@ -189,6 +189,12 @@ Se usássemos mais funções lineares e aplicássemos mais ReLUs a elas, a aprox
 
 ???
 
+* Regressão: saídas da rede são valores numéricos da função que queremos aproximar, como neste exemplo. 
+
+* Classificação: saídas da rede são rótulos de classes ou probabilidades. 
+
+* Exemplo de classificação mais adiante.
+
 
 ## Exercícios
 
