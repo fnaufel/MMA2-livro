@@ -25,7 +25,7 @@ Além disso, você pode assistir a [uma *playlist* com mais de 100 vídeos](http
 
 Neste diagrama, vemos uma rede neural com uma camada oculta.
 
-Os quatro nós à esquerda ($X_1$ a $X_4$) representam simplesmente os valores dos [dados de entrada]{.hl} da rede. Apesar de não acontecer nenhuma computação nestes nós, muitas fontes consideram que estes nós formam a [camada de entrada]{.hl}.
+Os quatro nós à esquerda ($X_1$ a $X_4$) representam simplesmente os valores dos [dados de entrada]{.hl} da rede. Apesar de não acontecer nenhuma computação nestes nós, alguns livros consideram que estes nós formam a [camada de entrada]{.hl}.
 
 Os cinco nós azuis na coluna do meio ($A_1$ a $A_5$) formam a camada onde a maior parte da computação acontece. É a [camada oculta]{.hl}.
 
@@ -33,7 +33,7 @@ O nó cor-de-rosa à direita produz o [valor de saída]{.hl} da rede. É a [cama
 
 ![](slides/10-primeiras-nocoes/captured/slide003.png){fig-alt="diagrama com rede neural" fig-align="center"}
 
-As setas indicam como os valores dos nós são usados nas computações.
+Cada nó produz um valor. As setas indicam como os valores dos nós são usados nas computações.
 
 Por exemplo, [o nó $A_1$ calcula uma função]{.hl} dos quatro valores de entrada. Vamos chamar esta função de $h_1$:
 
@@ -110,7 +110,7 @@ Aqui, neste exemplo, $Y$ é função linear das saídas dos nós da camada ocult
 
 ![](slides/10-primeiras-nocoes/captured/slide005.png){fig-alt="equações para todos os nós da rede" fig-align="center"}
 
-Resumindo, os valores dos nós são:
+Resumindo, os valores dos nós são calculados da seguinte forma:
 
   $$
   \begin{aligned}
@@ -139,7 +139,7 @@ Historicamente, a função sigmóide foi uma das primeiras a ser usadas como fun
 
 A função sigmóide é útil, por exemplo, quando o nó precisa retornar uma [probabilidade]{.hl} (que é um valor entre $0$ e $1$).
 
-Outro exemplo de função de ativação é a [ReLU]{.hl}, bem mais simples de ser computada (e entendida). Se o argumento é negativo, a ReLU retorna zero; senão, retorna o próprio argumento. Atualmente, é uma das funções de ativação mais usadas.
+Outro exemplo de função de ativação é a [ReLU]{.hl}, bem mais simples de ser computada (e entendida). Se o argumento é negativo, a ReLU retorna zero; senão, retorna o próprio argumento. Atualmente, é uma das funções de ativação mais usadas em redes neurais.
 
 ![](slides/10-primeiras-nocoes/captured/slide007.png){fig-alt="exemplos de funções de ativação" fig-align="center"}
 
@@ -184,6 +184,8 @@ Se usássemos mais funções lineares e aplicássemos mais ReLUs a elas, a aprox
 
 ???
 
+![](slides/10-primeiras-nocoes/captured/slide016.png){fig-alt="aproximando uma função quadrática" fig-align="center"}
+
 
 ## Regressão *versus* classificação
 
@@ -194,6 +196,15 @@ Se usássemos mais funções lineares e aplicássemos mais ReLUs a elas, a aprox
 * Classificação: saídas da rede são rótulos de classes ou probabilidades. 
 
 * Exemplo de classificação mais adiante.
+
+![](slides/10-primeiras-nocoes/captured/slide017.png){fig-alt="regressão versus classificação" fig-align="center"}
+
+
+## O que falta ver?
+
+???
+
+![](slides/10-primeiras-nocoes/captured/slide018.png){fig-alt="de onde vêm os pesos?" fig-align="center"}
 
 
 ## Exercícios

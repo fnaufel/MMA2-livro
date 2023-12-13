@@ -417,6 +417,39 @@ Imagem: <https://commons.wikimedia.org/wiki/File:MultiLayerPerceptron.svg> (CC B
 :::
 
 
+## O que falta ver?
+
+:::::{.columns .nomarker}
+
+::::{.column width="40%"}
+
+<div style='height: 50px'></div>
+
+![](images/uma-camada.png){fig-alt="Rede neural com uma camada oculta"}
+
+::::
+
+::::{.column width="60%"}
+
+:::{.r-stack}
+
+![](images/equacoes-sem-destaques.png)
+
+![](images/equacoes-com-destaques.png){.fragment}
+
+:::
+
+:::{.text-end .fragment}
+
+De onde vêm os valores destes pesos?
+
+:::
+
+::::
+
+:::::
+
+
 ## Referências
 
 <div style='height: 100px'></div>

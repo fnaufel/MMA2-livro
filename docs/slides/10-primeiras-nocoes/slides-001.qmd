@@ -3,8 +3,8 @@ title: "Redes Neurais: Primeiras Noções"
 subtitle: "[(clique aqui para a transcrição)](file:///home/fnaufel/Documents/UFF/Ensino/Disciplinas/MMA/MMA2-livro/docs/10-primeiras-nocoes.html)"
 author: Fernando Náufel
 institute: RCN, UFF
-date: 12 10 2023
-date-modified: 19 11 2023
+date: 13 12 2023
+date-modified: 13 12 2023
 date-format: DD/MM/YYYY
 
 filters:
@@ -415,6 +415,39 @@ $$
 :::{.attribution}
 Imagem: <https://commons.wikimedia.org/wiki/File:MultiLayerPerceptron.svg> (CC BY SA)
 :::
+
+
+## O que falta ver?
+
+:::::{.columns .nomarker}
+
+::::{.column width="40%"}
+
+<div style='height: 50px'></div>
+
+![](images/uma-camada.png){fig-alt="Rede neural com uma camada oculta"}
+
+::::
+
+::::{.column width="60%"}
+
+:::{.r-stack}
+
+![](images/equacoes-sem-destaques.png)
+
+![](images/equacoes-com-destaques.png){.fragment}
+
+:::
+
+:::{.text-end .fragment}
+
+De onde vêm os valores destes pesos?
+
+:::
+
+::::
+
+:::::
 
 
 ## Referências

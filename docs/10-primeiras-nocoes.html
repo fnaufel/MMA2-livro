@@ -181,7 +181,8 @@ div.csl-indent {
   <li><a href="#exemplos-de-funções-de-ativação" id="toc-exemplos-de-funções-de-ativação" class="nav-link" data-scroll-target="#exemplos-de-funções-de-ativação"><span class="header-section-number">1.4</span> Exemplos de funções de ativação</a></li>
   <li><a href="#exemplo-aproximando-uma-função-quadrática" id="toc-exemplo-aproximando-uma-função-quadrática" class="nav-link" data-scroll-target="#exemplo-aproximando-uma-função-quadrática"><span class="header-section-number">1.5</span> Exemplo: aproximando uma função quadrática</a></li>
   <li><a href="#regressão-versus-classificação" id="toc-regressão-versus-classificação" class="nav-link" data-scroll-target="#regressão-versus-classificação"><span class="header-section-number">1.6</span> Regressão <em>versus</em> classificação</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">1.7</span> Exercícios</a></li>
+  <li><a href="#o-que-falta-ver" id="toc-o-que-falta-ver" class="nav-link" data-scroll-target="#o-que-falta-ver"><span class="header-section-number">1.7</span> O que falta ver?</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">1.8</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/fnaufel/MMA2-livro/edit/master/10-primeiras-nocoes.qmd" class="toc-action">Editar essa página</a></p></div></div></nav>
     </div>
@@ -231,7 +232,7 @@ div.csl-indent {
 <section id="o-que-é-uma-rede-neural" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="o-que-é-uma-rede-neural"><span class="header-section-number">1.3</span> O que é uma rede neural</h2>
 <p>Neste diagrama, vemos uma rede neural com uma camada oculta.</p>
-<p>Os quatro nós à esquerda (<span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_4\)</span>) representam simplesmente os valores dos <span class="hl">dados de entrada</span> da rede. Apesar de não acontecer nenhuma computação nestes nós, muitas fontes consideram que estes nós formam a <span class="hl">camada de entrada</span>.</p>
+<p>Os quatro nós à esquerda (<span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_4\)</span>) representam simplesmente os valores dos <span class="hl">dados de entrada</span> da rede. Apesar de não acontecer nenhuma computação nestes nós, alguns livros consideram que estes nós formam a <span class="hl">camada de entrada</span>.</p>
 <p>Os cinco nós azuis na coluna do meio (<span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_5\)</span>) formam a camada onde a maior parte da computação acontece. É a <span class="hl">camada oculta</span>.</p>
 <p>O nó cor-de-rosa à direita produz o <span class="hl">valor de saída</span> da rede. É a <span class="hl">camada de saída</span>. Nem sempre a camada de saída vai consistir de apenas um nó.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -239,7 +240,7 @@ div.csl-indent {
 <p><img src="slides/10-primeiras-nocoes/captured/slide003.png" class="img-fluid figure-img" alt="diagrama com rede neural"></p>
 </figure>
 </div>
-<p>As setas indicam como os valores dos nós são usados nas computações.</p>
+<p>Cada nó produz um valor. As setas indicam como os valores dos nós são usados nas computações.</p>
 <p>Por exemplo, <span class="hl">o nó <span class="math inline">\(A_1\)</span> calcula uma função</span> dos quatro valores de entrada. Vamos chamar esta função de <span class="math inline">\(h_1\)</span>:</p>
 <p><span class="math display">\[
 A_1 = h_1(\overrightarrow{X}) = h_1(X_1, X_2, X_3, X_4)
@@ -300,7 +301,7 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 <p><img src="slides/10-primeiras-nocoes/captured/slide005.png" class="img-fluid figure-img" alt="equações para todos os nós da rede"></p>
 </figure>
 </div>
-<p>Resumindo, os valores dos nós são:</p>
+<p>Resumindo, os valores dos nós são calculados da seguinte forma:</p>
 <p><span class="math display">\[
   \begin{aligned}
   A_i &amp;= g\left(w_{i0} + \sum_{j=1}^4 w_{ij} X_j\right) \\
@@ -325,7 +326,7 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 <p>Um exemplo é a <span class="hl">função sigmóide</span>, que sempre retorna valores entre <span class="math inline">\(0\)</span> e <span class="math inline">\(1\)</span> (exclusive) e que tem o gráfico mostrado abaixo. Esta função “comprime”, por assim dizer, todos os números reais para o intervalo <span class="math inline">\((0, 1)\)</span>.</p>
 <p>Historicamente, a função sigmóide foi uma das primeiras a ser usadas como função de ativação, mas atualmente damos preferência a outras, que são menos problemáticas. Mais adiante, vamos falar sobre isto.</p>
 <p>A função sigmóide é útil, por exemplo, quando o nó precisa retornar uma <span class="hl">probabilidade</span> (que é um valor entre <span class="math inline">\(0\)</span> e <span class="math inline">\(1\)</span>).</p>
-<p>Outro exemplo de função de ativação é a <span class="hl">ReLU</span>, bem mais simples de ser computada (e entendida). Se o argumento é negativo, a ReLU retorna zero; senão, retorna o próprio argumento. Atualmente, é uma das funções de ativação mais usadas.</p>
+<p>Outro exemplo de função de ativação é a <span class="hl">ReLU</span>, bem mais simples de ser computada (e entendida). Se o argumento é negativo, a ReLU retorna zero; senão, retorna o próprio argumento. Atualmente, é uma das funções de ativação mais usadas em redes neurais.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide007.png" class="img-fluid figure-img" alt="exemplos de funções de ativação"></p>
@@ -381,6 +382,11 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 <section id="exemplo-aproximando-uma-função-quadrática" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="exemplo-aproximando-uma-função-quadrática"><span class="header-section-number">1.5</span> Exemplo: aproximando uma função quadrática</h2>
 <p>???</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide016.png" class="img-fluid figure-img" alt="aproximando uma função quadrática"></p>
+</figure>
+</div>
 </section>
 <section id="regressão-versus-classificação" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="regressão-versus-classificação"><span class="header-section-number">1.6</span> Regressão <em>versus</em> classificação</h2>
@@ -390,9 +396,23 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 <li><p>Classificação: saídas da rede são rótulos de classes ou probabilidades.</p></li>
 <li><p>Exemplo de classificação mais adiante.</p></li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide017.png" class="img-fluid figure-img" alt="regressão versus classificação"></p>
+</figure>
+</div>
 </section>
-<section id="exercícios" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">1.7</span> Exercícios</h2>
+<section id="o-que-falta-ver" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="o-que-falta-ver"><span class="header-section-number">1.7</span> O que falta ver?</h2>
+<p>???</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/captured/slide018.png" class="img-fluid figure-img" alt="de onde vêm os pesos?"></p>
+</figure>
+</div>
+</section>
+<section id="exercícios" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">1.8</span> Exercícios</h2>
 <p>???</p>
 
 
