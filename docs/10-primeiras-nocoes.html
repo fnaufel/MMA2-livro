@@ -214,7 +214,7 @@ div.csl-indent {
 <h2 data-number="1.1" class="anchored" data-anchor-id="fonte"><span class="header-section-number">1.1</span> Fonte</h2>
 <p>Este capítulo transcreve uma <a href="slides/10-primeiras-nocoes/slides-001.html">apresentação de <em>slides</em> que fiz sobre este assunto</a>.</p>
 <p>Boa parte do material apresentado aqui vem do capítulo 10 do livro <span class="citation" data-cites="james21:_introd_statis_learn">James et al. (<a href="references.html#ref-james21:_introd_statis_learn" role="doc-biblioref">2021</a>)</span>, que também está <a href="https://www.statlearning.com/">disponível <em>online</em></a>.</p>
-<p>Além disso, você pode assistir a <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e">uma <em>playlist</em> com mais de 100 vídeos</a>, sobre os assuntos do livro <span class="citation" data-cites="james21:_introd_statis_learn">James et al. (<a href="references.html#ref-james21:_introd_statis_learn" role="doc-biblioref">2021</a>)</span>, apresentados pelos próprios autores.</p>
+<p>Você também pode assistir a <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e">uma <em>playlist</em> com mais de 100 vídeos</a>, sobre os assuntos do livro <span class="citation" data-cites="james21:_introd_statis_learn">James et al. (<a href="references.html#ref-james21:_introd_statis_learn" role="doc-biblioref">2021</a>)</span>, apresentados pelos próprios autores.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide001.png" class="img-fluid figure-img" alt="slide com informações sobre a fonte"></p>
@@ -231,10 +231,12 @@ div.csl-indent {
 </section>
 <section id="o-que-é-uma-rede-neural" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="o-que-é-uma-rede-neural"><span class="header-section-number">1.3</span> O que é uma rede neural</h2>
-<p>Neste diagrama, vemos uma rede neural com uma camada oculta.</p>
-<p>Os quatro nós à esquerda (<span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_4\)</span>) representam simplesmente os valores dos <span class="hl">dados de entrada</span> da rede. Apesar de não acontecer nenhuma computação nestes nós, alguns livros consideram que estes nós formam a <span class="hl">camada de entrada</span>.</p>
+<p>Neste diagrama, vemos um exemplo de rede neural com uma camada oculta.</p>
+<p>Outros exemplos podem ter quantidades diferentes de camadas e de nós por camada.</p>
+<p>Neste exemplo, os quatro nós à esquerda (<span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_4\)</span>) representam simplesmente os valores dos <span class="hl">dados de entrada</span> da rede. Apesar de não acontecer nenhuma computação nestes nós, alguns livros consideram que estes nós formam a <span class="hl">camada de entrada</span>.</p>
 <p>Os cinco nós azuis na coluna do meio (<span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_5\)</span>) formam a camada onde a maior parte da computação acontece. É a <span class="hl">camada oculta</span>.</p>
 <p>O nó cor-de-rosa à direita produz o <span class="hl">valor de saída</span> da rede. É a <span class="hl">camada de saída</span>. Nem sempre a camada de saída vai consistir de apenas um nó.</p>
+<p>Estes nós também são chamados de <span class="hl">neurônios</span>, ou simplesmente <span class="hl">unidades</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide003.png" class="img-fluid figure-img" alt="diagrama com rede neural"></p>
@@ -257,7 +259,8 @@ w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4
 <li><span class="math inline">\(w_{12}\)</span> corresponde à seta de <span class="math inline">\(X_2\)</span> para <span class="math inline">\(A_1\)</span>,</li>
 <li><span class="math inline">\(w_{13}\)</span> corresponde à seta de <span class="math inline">\(X_3\)</span> para <span class="math inline">\(A_1\)</span>, e assim por diante.</li>
 </ul>
-<p>Mas, aqui, a seta que corresponde a <span class="math inline">\(w_{10}\)</span> não é mostrada. Algumas fontes representariam este peso como uma seta que vem “do nada” para o nó <span class="math inline">\(A_1\)</span>. Outras fontes representariam este peso como um valor dentro do nó <span class="math inline">\(A_1\)</span>.</p>
+<p>Mas, aqui, a seta que corresponde a <span class="math inline">\(w_{10}\)</span> não é mostrada. Alguns livros representariam este peso como uma seta que vem “do nada” para o nó <span class="math inline">\(A_1\)</span>. Outros livros representariam este peso como um valor dentro do nó <span class="math inline">\(A_1\)</span>.</p>
+<p>Este peso <span class="math inline">\(w_{10}\)</span>, que não multiplica nenhum dos dados de entrada, é chamado de <span class="hl">viés</span> (<em>bias</em>, em inglês).</p>
 <p>O resultado desta combinação linear é enviado para uma função <span class="math inline">\(g\)</span>, fazendo, então, com que a <span class="hl">saída do nó <span class="math inline">\(A_1\)</span></span> seja</p>
 <p><span class="math display">\[
 A_1 = g\;(w_{10} + w_{11} X_1 + w_{12} X_2 + w_{13} X_3 + w_{14} X_4)
@@ -269,8 +272,8 @@ A_1 = g\left(
   + \sum_{j=1}^4 w_{1j} X_j\right)
 \]</span></p>
 <p>A função <span class="math inline">\(g\)</span> é chamada de <span class="hl">função de ativação</span>, e costuma ser uma função <span class="hl">não-linear</span>. Mais adiante, vamos ver exemplos específicos de funções de ativação.</p>
-<p>Se a função <span class="math inline">\(g\)</span> fosse linear, a rede neural seria equivalente a regressão linear.</p>
-<p>Ou seja, <span class="hl">é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que modelos não-lineares não são capazes de computar.</span></p>
+<p>Se a função <span class="math inline">\(g\)</span> fosse linear, a rede neural seria equivalente a regressão linear, que é um modelo menos poderoso.</p>
+<p>Ou seja, <span class="hl">é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que modelos lineares não são capazes de computar.</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide004.png" class="img-fluid figure-img" alt="equações para um nó da rede"></p>
@@ -333,7 +336,7 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 </figure>
 </div>
 <p>Você pode achar que a ReLU, uma função que simplesmente zera os argumentos que estão abaixo de zero, é simples demais para aproximar funções lineares. Este exemplo mostra que não:</p>
-<p>Vamos considerar a função <span class="math inline">\(f(x) = x^2 - 21x + 104\)</span>:</p>
+<p>Vamos considerar a função quadrática <span class="math inline">\(f(x) = x^2 - 21x + 104\)</span>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide008.png" class="img-fluid figure-img" alt="aproximando uma função não-linear com ReLU"></p>
@@ -381,7 +384,9 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 </section>
 <section id="exemplo-aproximando-uma-função-quadrática" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="exemplo-aproximando-uma-função-quadrática"><span class="header-section-number">1.5</span> Exemplo: aproximando uma função quadrática</h2>
-<p>???</p>
+<p>Agora, vamos seguir esta mesma idéia, mas deixando uma rede neural fazer o trabalho.</p>
+<p>Esta é uma rede neural com uma entrada <span class="math inline">\(x\)</span>, uma única camada oculta, com <span class="math inline">\(200\)</span> neurônios, com função de ativação ReLU, e camada de saída com um único neurônio.</p>
+<p>Com os valores dos pesos definidos por um processo de treinamento que vamos abordar depois, esta rede é capaz de retornar, para diversos valores de <span class="math inline">\(x\)</span> entre <span class="math inline">\(-50\)</span> e <span class="math inline">\(50\)</span>, o valor de <span class="math inline">\(x^2\)</span>, com mostra o gráfico:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide016.png" class="img-fluid figure-img" alt="aproximando uma função quadrática"></p>
@@ -390,12 +395,16 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 </section>
 <section id="regressão-versus-classificação" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="regressão-versus-classificação"><span class="header-section-number">1.6</span> Regressão <em>versus</em> classificação</h2>
-<p>???</p>
+<p>Os exemplos que vimos até agora são de redes neurais que calculam uma função numérica das variáveis de entrada. O que estas redes fazem é chamado de <span class="hl">regressão</span>.</p>
+<p>Um outro tipo de rede neural serve para computar <span class="hl">a qual classe</span> pertencem os dados de entrada.</p>
+<p>Por exemplo, as entradas podem representar dados numéricos sobre um paciente a ser diagnosticado, e as saídas (aqui, três) são as <span class="hl">probabilidades</span> de o paciente pertencer às classes</p>
 <ul>
-<li><p>Regressão: saídas da rede são valores numéricos da função que queremos aproximar, como neste exemplo.</p></li>
-<li><p>Classificação: saídas da rede são rótulos de classes ou probabilidades.</p></li>
-<li><p>Exemplo de classificação mais adiante.</p></li>
+<li><span class="math inline">\(C_1 = {}\)</span> <em>saudável</em>,</li>
+<li><span class="math inline">\(C_2 = {}\)</span> <em>indefinido</em>,</li>
+<li><span class="math inline">\(C_3 = {}\)</span> <em>doente</em>.</li>
 </ul>
+<p>Este tipo de rede faz o que chamamos de <span class="hl">classificação</span>.</p>
+<p>Mais adiante, vamos ver outros exemplos.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide017.png" class="img-fluid figure-img" alt="regressão versus classificação"></p>
@@ -404,7 +413,10 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 </section>
 <section id="o-que-falta-ver" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="o-que-falta-ver"><span class="header-section-number">1.7</span> O que falta ver?</h2>
-<p>???</p>
+<p>A esta altura, você deve ter entendido o que é e para que serve uma rede neural.</p>
+<p>Os exemplos que vimos foram de redes “já prontas”, com os valores dos pesos já definidos para as tarefas que as redes deviam executar.</p>
+<p>Uma pergunta importante, que não abordamos aqui, é a de <span class="hl">como os valores destes pesos são escolhidos</span>.</p>
+<p>Em um outro capítulo, então, vamos falar sobre o processo de <span class="hl">treinamento</span> de uma rede neural, que é o que define os valores dos pesos.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/10-primeiras-nocoes/captured/slide018.png" class="img-fluid figure-img" alt="de onde vêm os pesos?"></p>
@@ -413,7 +425,21 @@ A_i &amp;= g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4) \\
 </section>
 <section id="exercícios" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">1.8</span> Exercícios</h2>
-<p>???</p>
+<ol type="1">
+<li><p>No diagrama do nosso <a href="#o-que-%C3%A9-uma-rede-neural">primeiro exemplo de rede neural</a>, escreva, próximo a cada seta, o nome do peso correspondente:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/10-primeiras-nocoes/images/uma-camada.png" class="img-fluid figure-img" style="width:100.0%" alt="rede com uma camada oculta"></p>
+</figure>
+</div>
+<p>Lembre-se das equações:</p>
+<ul>
+<li><p><span class="math inline">\(A_i = g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4)\)</span></p></li>
+<li><p><span class="math inline">\(Y = \beta_0 + \beta_1 A_1 + \beta_2 A_2 + \beta_3 A_3 + \beta_4 A_4 + \beta_5 A_5\)</span></p></li>
+</ul>
+<p>Como você decidiu representar os pesos <span class="math inline">\(w_{i0}\)</span> e o peso <span class="math inline">\(\beta_0\)</span>?</p></li>
+<li></li>
+</ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">

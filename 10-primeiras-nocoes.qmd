@@ -9,7 +9,7 @@ Este capítulo transcreve uma [apresentação de *slides* que fiz sobre este ass
 
 Boa parte do material apresentado aqui vem do capítulo 10 do livro @james21:_introd_statis_learn, que também está [disponível *online*](https://www.statlearning.com/).
 
-Além disso, você pode assistir a [uma *playlist* com mais de 100 vídeos](https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e), sobre os assuntos do livro @james21:_introd_statis_learn, apresentados pelos próprios autores.
+Você também pode assistir a [uma *playlist* com mais de 100 vídeos](https://www.youtube.com/playlist?list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e), sobre os assuntos do livro @james21:_introd_statis_learn, apresentados pelos próprios autores.
 
 
 
@@ -23,13 +23,17 @@ Além disso, você pode assistir a [uma *playlist* com mais de 100 vídeos](http
 
 ## O que é uma rede neural
 
-Neste diagrama, vemos uma rede neural com uma camada oculta.
+Neste diagrama, vemos um exemplo de rede neural com uma camada oculta.
 
-Os quatro nós à esquerda ($X_1$ a $X_4$) representam simplesmente os valores dos [dados de entrada]{.hl} da rede. Apesar de não acontecer nenhuma computação nestes nós, alguns livros consideram que estes nós formam a [camada de entrada]{.hl}.
+Outros exemplos podem ter quantidades diferentes de camadas e de nós por camada.
+
+Neste exemplo, os quatro nós à esquerda ($X_1$ a $X_4$) representam simplesmente os valores dos [dados de entrada]{.hl} da rede. Apesar de não acontecer nenhuma computação nestes nós, alguns livros consideram que estes nós formam a [camada de entrada]{.hl}.
 
 Os cinco nós azuis na coluna do meio ($A_1$ a $A_5$) formam a camada onde a maior parte da computação acontece. É a [camada oculta]{.hl}.
 
 O nó cor-de-rosa à direita produz o [valor de saída]{.hl} da rede. É a [camada de saída]{.hl}. Nem sempre a camada de saída vai consistir de apenas um nó.
+
+Estes nós também são chamados de [neurônios]{.hl}, ou simplesmente [unidades]{.hl}.
 
 ![](slides/10-primeiras-nocoes/captured/slide003.png){fig-alt="diagrama com rede neural" fig-align="center"}
 
@@ -57,7 +61,9 @@ Você pode imaginar que, no diagrama, cada seta corresponde a um peso:
 * $w_{12}$ corresponde à seta de $X_2$ para $A_1$,
 * $w_{13}$ corresponde à seta de $X_3$ para $A_1$, e assim por diante.
 
-Mas, aqui, a seta que corresponde a $w_{10}$ não é mostrada. Algumas fontes representariam este peso como uma seta que vem "do nada" para o nó $A_1$. Outras fontes representariam este peso como um valor dentro do nó $A_1$.
+Mas, aqui, a seta que corresponde a $w_{10}$ não é mostrada. Alguns livros representariam este peso como uma seta que vem "do nada" para o nó $A_1$. Outros livros representariam este peso como um valor dentro do nó $A_1$.
+
+Este peso $w_{10}$, que não multiplica nenhum dos dados de entrada, é chamado de [viés]{.hl} (*bias*, em inglês).
 
 O resultado desta combinação linear é enviado para uma função $g$, fazendo, então, com que a [saída do nó $A_1$]{.hl} seja
 
@@ -75,9 +81,9 @@ $$
 
 A função $g$ é chamada de [função de ativação]{.hl}, e costuma ser uma função [não-linear]{.hl}. Mais adiante, vamos ver exemplos específicos de funções de ativação.
 
-Se a função $g$ fosse linear, a rede neural seria equivalente a regressão linear.
+Se a função $g$ fosse linear, a rede neural seria equivalente a regressão linear, que é um modelo menos poderoso.
 
-Ou seja, [é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que modelos não-lineares não são capazes de computar.]{.hl}
+Ou seja, [é a não-linearidade da função de ativação que faz com que uma rede neural possa computar funções que modelos lineares não são capazes de computar.]{.hl}
 
 ![](slides/10-primeiras-nocoes/captured/slide004.png){fig-alt="equações para um nó da rede" fig-align="center"}
 
@@ -145,7 +151,7 @@ Outro exemplo de função de ativação é a [ReLU]{.hl}, bem mais simples de se
 
 Você pode achar que a ReLU, uma função que simplesmente zera os argumentos que estão abaixo de zero, é simples demais para aproximar funções lineares. Este exemplo mostra que não:
 
-Vamos considerar a função $f(x) = x^2 - 21x + 104$:
+Vamos considerar a função quadrática $f(x) = x^2 - 21x + 104$:
 
 ![](slides/10-primeiras-nocoes/captured/slide008.png){fig-alt="aproximando uma função não-linear com ReLU" fig-align="center"}
 
@@ -182,31 +188,59 @@ Se usássemos mais funções lineares e aplicássemos mais ReLUs a elas, a aprox
 
 ## Exemplo: aproximando uma função quadrática
 
-???
+Agora, vamos seguir esta mesma idéia, mas deixando uma rede neural fazer o trabalho.
+
+Esta é uma rede neural com uma entrada $x$, uma única camada oculta, com $200$ neurônios, com função de ativação ReLU, e camada de saída com um único neurônio.
+
+Com os valores dos pesos definidos por um processo de treinamento que vamos abordar depois, esta rede é capaz de retornar, para diversos valores de $x$ entre $-50$ e $50$, o valor de $x^2$, com mostra o gráfico:
 
 ![](slides/10-primeiras-nocoes/captured/slide016.png){fig-alt="aproximando uma função quadrática" fig-align="center"}
 
 
 ## Regressão *versus* classificação
 
-???
+Os exemplos que vimos até agora são de redes neurais que calculam uma função numérica das variáveis de entrada. O que estas redes fazem é chamado de [regressão]{.hl}.
 
-* Regressão: saídas da rede são valores numéricos da função que queremos aproximar, como neste exemplo. 
+Um outro tipo de rede neural serve para computar [a qual classe]{.hl} pertencem os dados de entrada. 
 
-* Classificação: saídas da rede são rótulos de classes ou probabilidades. 
+Por exemplo, as entradas podem representar dados numéricos sobre um paciente a ser diagnosticado, e as saídas (aqui, três) são as [probabilidades]{.hl} de o paciente pertencer às classes
 
-* Exemplo de classificação mais adiante.
+* $C_1 = {}$ *saudável*,
+* $C_2 = {}$ *indefinido*,
+* $C_3 = {}$ *doente*.
+
+Este tipo de rede faz o que chamamos de [classificação]{.hl}. 
+
+Mais adiante, vamos ver outros exemplos.
 
 ![](slides/10-primeiras-nocoes/captured/slide017.png){fig-alt="regressão versus classificação" fig-align="center"}
 
 
 ## O que falta ver?
 
-???
+A esta altura, você deve ter entendido o que é e para que serve uma rede neural.
+
+Os exemplos que vimos foram de redes "já prontas", com os valores dos pesos já definidos para as tarefas que as redes deviam executar.
+
+Uma pergunta importante, que não abordamos aqui, é a de [como os valores destes pesos são escolhidos]{.hl}.
+
+Em um outro capítulo, então, vamos falar sobre o processo de [treinamento]{.hl} de uma rede neural, que é o que define os valores dos pesos. 
 
 ![](slides/10-primeiras-nocoes/captured/slide018.png){fig-alt="de onde vêm os pesos?" fig-align="center"}
 
 
 ## Exercícios
 
-???
+1. No diagrama do nosso [primeiro exemplo de rede neural](#o-que-%C3%A9-uma-rede-neural), escreva, próximo a cada seta, o nome do peso correspondente:
+
+   ![](slides/10-primeiras-nocoes/images/uma-camada.png){fig-alt="rede com uma camada oculta" width=100% fig-align="center"}
+
+   Lembre-se das equações:
+   
+   * $A_i = g\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4)$
+   
+   * $Y = \beta_0 + \beta_1 A_1 + \beta_2 A_2 + \beta_3 A_3 + \beta_4 A_4 + \beta_5 A_5$
+
+   Como você decidiu representar os pesos $w_{i0}$ e o peso $\beta_0$ (os chamados [vieses]{.hl} ou *biases*)?
+   
+1. 
