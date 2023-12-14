@@ -60,7 +60,7 @@
     "href": "10-primeiras-nocoes.html#exercícios",
     "title": "1  Primeiras noções sobre redes neurais",
     "section": "1.8 Exercícios",
-    "text": "1.8 Exercícios\n\nNo diagrama do nosso primeiro exemplo de rede neural, escreva, próximo a cada seta, o nome do peso correspondente:\n\n\n\n\n\nLembre-se das equações:\n\n\\(A_i = g\\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4)\\)\n\\(Y = \\beta_0 + \\beta_1 A_1 + \\beta_2 A_2 + \\beta_3 A_3 + \\beta_4 A_4 + \\beta_5 A_5\\)\n\nComo você decidiu representar os pesos \\(w_{i0}\\) e o peso \\(\\beta_0\\)?\n\n\n\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2.ª ed. Springer Publishing Company, Incorporated. https://www.statlearning.com/."
+    "text": "1.8 Exercícios\n\nNo diagrama do nosso primeiro exemplo de rede neural, escreva, próximo a cada seta, o nome do peso correspondente:\n\n\n\n\n\nLembre-se das equações:\n\n\\(A_i = g\\;(w_{i0} + w_{i1} X_1 + w_{i2} X_2 + w_{i3} X_3 + w_{i4} X_4)\\)\n\\(Y = \\beta_0 + \\beta_1 A_1 + \\beta_2 A_2 + \\beta_3 A_3 + \\beta_4 A_4 + \\beta_5 A_5\\)\n\nComo você decidiu representar os pesos \\(w_{i0}\\) e o peso \\(\\beta_0\\) (os chamados vieses ou biases)?\n\n\n\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, e Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2.ª ed. Springer Publishing Company, Incorporated. https://www.statlearning.com/."
   },
   {
     "objectID": "references.html",
