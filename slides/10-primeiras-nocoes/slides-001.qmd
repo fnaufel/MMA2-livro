@@ -1,6 +1,6 @@
 ---
 title: "Redes Neurais: Primeiras Noções"
-subtitle: "[(clique aqui para a transcrição)](file:///home/fnaufel/Documents/UFF/Ensino/Disciplinas/MMA/MMA2-livro/docs/10-primeiras-nocoes.html)"
+subtitle: "[(clique aqui para a transcrição)](https://fnaufel.github.io/MMA2-livro/10-primeiras-nocoes.html)"
 author: Fernando Náufel
 institute: RCN, UFF
 date: 13 12 2023
